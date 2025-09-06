@@ -70,7 +70,7 @@ dict "start" (or .Page.Params.start .Page.Params.startTime) "end" (or
             </div>
             {{ end }} {{ end }}
         </div>
-        {{ with $registration }} {{ if .required }}
+        {{ with $registration }} {{ if and .required (gt $meetingDate now) }}
         <div class="registration-required">
             <h3>Registration Required</h3>
             {{ with .url }}
