@@ -37,38 +37,39 @@ dict "start" (or .Page.Params.start .Page.Params.startTime) "end" (or
                     <span class="info-content">{{ .venue }}</span>
                 </div>
                 {{ end }} {{ end }}
+                {{ with $location }} {{ if or .address .map .website }}
+                <div class="location-details">
+                    {{ with .address }}
+                    <div class="address">{{ . | markdownify }}</div>
+                    {{ end }}
+                    <div class="location-links">
+                        {{ with .map }}
+                        <a
+                            href="{{ . }}"
+                            target="_blank"
+                            rel="noopener"
+                            class="link-button"
+                        >
+                            🗺️ View Map
+                        </a>
+                        {{ end }} {{ with .website }}
+                        <a
+                            href="{{ . }}"
+                            target="_blank"
+                            rel="noopener"
+                            class="link-button"
+                        >
+                            🌐 Website
+                        </a>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }} {{ end }}
             </div>
 
             {{ with $schedule.notes }}
             <div class="schedule-notes">{{ . | markdownify }}</div>
-            {{ end }} {{ with $location }} {{ if or .address .map .website }}
-            <div class="location-details">
-                {{ with .address }}
-                <div class="address">{{ . | markdownify }}</div>
-                {{ end }}
-                <div class="location-links">
-                    {{ with .map }}
-                    <a
-                        href="{{ . }}"
-                        target="_blank"
-                        rel="noopener"
-                        class="link-button"
-                    >
-                        🗺️ View Map
-                    </a>
-                    {{ end }} {{ with .website }}
-                    <a
-                        href="{{ . }}"
-                        target="_blank"
-                        rel="noopener"
-                        class="link-button"
-                    >
-                        🌐 Website
-                    </a>
-                    {{ end }}
-                </div>
-            </div>
-            {{ end }} {{ end }}
+            {{ end }}
         </div>
         {{ with $registration }} {{ if and .required (gt $meetingDate now) }}
         <div class="registration-required">
@@ -99,11 +100,11 @@ dict "start" (or .Page.Params.start .Page.Params.startTime) "end" (or
             {{ end }}
         </div>
     </div>
-    {{ else }} {{ with .notes }}
+    {{ else }} {{ if gt $meetingDate now }} {{ with .notes }}
     <div class="registration-info">
         <div class="registration-note">{{ . }}</div>
     </div>
-    {{ end }} {{ end }} {{ end }}
+    {{ end }} {{ end }} {{ end }} {{ end }}
 </div>
 
 <style>
