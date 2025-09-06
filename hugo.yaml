@@ -1,4 +1,4 @@
-baseURL: "https://tlug.onjapan.net"
+baseURL: "https://tlug-www.netlify.app"
 title: "Tokyo Linux Users Group"
 languageCode: "en"
 defaultContentLanguage: "en"
