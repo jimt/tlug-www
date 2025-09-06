@@ -1,0 +1,511 @@
+{{ $page := .page }}
+{{ $type := .type | default "past" }}
+{{ $meetingType := $page.Params.meetingType | default "general" }}
+{{ $location := $page.Params.location }}
+{{ $venue := $page.Params.venue }}
+{{ $start := or $page.Params.start $page.Params.startTime }}
+{{ $end := or $page.Params.end $page.Params.endTime }}
+{{ $agenda := $page.Params.agenda }}
+{{ $images := $page.Params.images }}
+{{ $pageResources := $page.Resources.ByType "image" }}
+{{ $hasImages := or $images $pageResources }}
+{{ $isFuture := eq $type "upcoming" }}
+
+{{/* Check for registration requirement */}}
+{{ $registrationRequired := false }}
+{{ $registrationURL := "" }}
+{{ if $page.Params.registrationRequired }}
+  {{ $registrationRequired = true }}
+  {{ $registrationURL = $page.Params.registrationURL }}
+{{ else if (findRE `meeting-registration.*required="true"` $page.RawContent) }}
+  {{ $registrationRequired = true }}
+  {{ with (findRE `url="([^"]+)"` $page.RawContent 1) }}
+    {{ $registrationURL = index . 0 | replaceRE `url="([^"]+)"` "$1" }}
+  {{ end }}
+{{ end }}
+
+{{/* Extract venue from shortcode if not in front matter */}}
+{{ if not $venue }}
+  {{ with (findRE `meeting-location.*venue="([^"]+)"` $page.RawContent 1) }}
+    {{ $venue = index . 0 | replaceRE `.*venue="([^"]+)".*` "$1" }}
+  {{ end }}
+{{ end }}
+
+{{/* Extract times from shortcode if not in front matter */}}
+{{ if not $start }}
+  {{ with (findRE `meeting-schedule.*start="([^"]+)"` $page.RawContent 1) }}
+    {{ $start = index . 0 | replaceRE `.*start="([^"]+)".*` "$1" }}
+  {{ end }}
+{{ end }}
+{{ if not $end }}
+  {{ with (findRE `meeting-schedule.*end="([^"]+)"` $page.RawContent 1) }}
+    {{ $end = index . 0 | replaceRE `.*end="([^"]+)".*` "$1" }}
+  {{ end }}
+{{ end }}
+
+<article class="meeting-card {{ $type }} {{ $meetingType }}">
+  <a href="{{ $page.RelPermalink }}" class="card-link-wrapper">
+    <div class="card-header">
+      {{ if $isFuture }}
+        <span class="upcoming-indicator">Upcoming</span>
+      {{ end }}
+    </div>
+
+    <div class="card-content">
+      {{/* Title with inline badge */}}
+      <div class="title-row">
+        <div class="meeting-type-badge">
+          {{ if eq $meetingType "technical" }}
+            <span class="badge technical">🎯 Technical</span>
+          {{ else if eq $meetingType "social" }}
+            <span class="badge social">🍻 Nomikai</span>
+          {{ else }}
+            <span class="badge general">📋 Meeting</span>
+          {{ end }}
+        </div>
+        <h3 class="meeting-title">{{ $page.Title }}</h3>
+      </div>
+
+      {{/* Date with enhanced formatting for future meetings */}}
+      <div class="meeting-date">
+        <time datetime="{{ $page.Date.Format "2006-01-02T15:04:05Z07:00" }}">
+          {{ if $isFuture }}
+            {{ $page.Date.Format "January 2, 2006" }} ({{ $page.Date.Format "Monday" }})
+          {{ else }}
+            {{ $page.Date.Format "January 2, 2006" }}
+          {{ end }}
+        </time>
+        {{ if and $isFuture (or $start $end) }}
+          <span class="meeting-time">
+            {{ with $start }}{{ . }}{{ end }}
+            {{ if and $start $end }} - {{ end }}
+            {{ with $end }}{{ . }}{{ end }}
+          </span>
+        {{ end }}
+      </div>
+
+      {{/* Venue for future meetings */}}
+      {{ if and $isFuture (or $venue $location) }}
+        <div class="meeting-location-summary">
+          <span class="location-icon">📍</span>
+          <span class="venue-name">{{ or $venue $location }}</span>
+        </div>
+      {{ end }}
+
+      {{/* Summary if available */}}
+      {{ with $page.Params.summary }}
+        <p class="meeting-summary">{{ . }}</p>
+      {{ end }}
+
+      {{/* Agenda preview */}}
+      {{ if $agenda }}
+        <div class="agenda-preview">
+          <h4>Agenda:</h4>
+          <ul class="agenda-list">
+            {{ range first 3 $agenda }}
+              {{ if eq .type "presentation" }}
+                <li class="agenda-item presentation">
+                  <span class="presentation-title">{{ .title }}</span>
+                  {{ with .presenter }}
+                    <span class="presenter">by {{ . }}</span>
+                  {{ end }}
+                </li>
+              {{ else if ne .type "break" }}
+                <li class="agenda-item {{ .type }}">{{ .title }}</li>
+              {{ end }}
+            {{ end }}
+            {{ if gt (len $agenda) 3 }}
+              <li class="agenda-more">... and more</li>
+            {{ end }}
+          </ul>
+        </div>
+      {{ end }}
+
+      {{/* Registration notice for future meetings */}}
+      {{ if and $isFuture $registrationRequired }}
+        <div class="registration-notice">
+          <span class="registration-icon">📝</span>
+          <span class="registration-text">Registration required - Visit for complete details and signup</span>
+        </div>
+      {{ end }}
+
+      {{/* Images preview for past meetings */}}
+      {{ if and (not $isFuture) $hasImages }}
+        <div class="meeting-images-preview">
+          {{ if $pageResources }}
+            {{ $firstImage := index $pageResources 0 }}
+            {{ $thumb := $firstImage.Resize "100x75" }}
+            <img src="{{ $thumb.RelPermalink }}" alt="Meeting photo" class="thumbnail" />
+            <span class="image-count">{{ len $pageResources }} photo{{ if gt (len $pageResources) 1 }}s{{ end }}</span>
+          {{ else if $images }}
+            <span class="image-count">{{ len $images }} photo{{ if gt (len $images) 1 }}s{{ end }}</span>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+
+    <div class="card-footer">
+      <span class="read-more">
+        {{ if $isFuture }}
+          View Details & Register →
+        {{ else }}
+          Read More →
+        {{ end }}
+      </span>
+    </div>
+  </a>
+</article>
+
+<style>
+.meeting-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid #e9ecef;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.card-link-wrapper {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  cursor: pointer;
+}
+
+.meeting-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.meeting-card.upcoming {
+  border-left: 4px solid #28a745;
+  background: linear-gradient(135deg, #ffffff 0%, #f0fff4 100%);
+}
+
+.meeting-card.past {
+  border-left: 4px solid #6c757d;
+}
+
+.card-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.75rem 1.25rem 0 1.25rem;
+  min-height: 2rem;
+}
+
+.upcoming-indicator {
+  background: #28a745;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.card-content {
+  padding: 0 1.25rem 1.25rem 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.meeting-type-badge {
+  flex-shrink: 0;
+}
+
+.meeting-type-badge .badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.badge.technical {
+  background: #e7f3ff;
+  color: #0056b3;
+  border: 1px solid #b3d7ff;
+}
+
+.badge.social {
+  background: #fff0f5;
+  color: #c2185b;
+  border: 1px solid #f8bbd9;
+}
+
+.badge.general {
+  background: #f0f0f0;
+  color: #495057;
+  border: 1px solid #d1d1d1;
+}
+
+.meeting-title {
+  margin: 0;
+  line-height: 1.3;
+  flex: 1;
+  color: #212529;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.card-link-wrapper:hover .meeting-title {
+  color: #007bff;
+}
+
+.meeting-date {
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.meeting-date time {
+  font-weight: 600;
+  color: #495057;
+  font-size: 1.05rem;
+  display: block;
+}
+
+.meeting-card.upcoming .meeting-date time {
+  color: #28a745;
+}
+
+.meeting-time {
+  display: block;
+  color: #6c757d;
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+.meeting-summary {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.meeting-location-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.75rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.location-icon {
+  font-size: 1rem;
+  color: #28a745;
+}
+
+.venue-name {
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.95rem;
+}
+
+.agenda-preview {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.agenda-preview h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9rem;
+  color: #495057;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.agenda-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.agenda-item {
+  padding: 0.35rem 0;
+  font-size: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: baseline;
+  border-left: 2px solid transparent;
+  padding-left: 0.75rem;
+  margin-left: -0.75rem;
+}
+
+.agenda-item.presentation {
+  border-left-color: #007bff;
+}
+
+.agenda-item.presentation .presentation-title {
+  font-weight: 600;
+  color: #212529;
+}
+
+.agenda-item .presenter {
+  color: #6c757d;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+.agenda-more {
+  color: #999;
+  font-style: italic;
+  font-size: 0.85rem;
+  padding: 0.25rem 0 0 0.75rem;
+}
+
+.registration-notice {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #fff5e6 0%, #ffedcc 100%);
+  border: 1px solid #ffc107;
+  border-radius: 8px;
+}
+
+.registration-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.registration-text {
+  color: #856404;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.meeting-images-preview {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.meeting-images-preview .thumbnail {
+  width: 60px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #dee2e6;
+}
+
+.image-count {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.card-footer {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid #f1f3f4;
+  background: #fafbfc;
+  margin-top: auto;
+}
+
+.read-more {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.meeting-card.upcoming .read-more {
+  color: #28a745;
+}
+
+.card-link-wrapper:hover .read-more {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+.meeting-card.upcoming .card-link-wrapper:hover .read-more {
+  color: #218838;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .meeting-type-badge {
+    display: none;
+  }
+
+  .title-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .meeting-title {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-header {
+    padding: 0.5rem 1rem 0 1rem;
+  }
+
+  .meeting-title {
+    font-size: 1.15rem;
+  }
+
+  .agenda-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .meeting-images-preview {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .registration-notice {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>

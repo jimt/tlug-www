@@ -1,0 +1,91 @@
+/* Meeting Cards Theme Variables */
+
+/* Light theme variables */
+:root {
+  --card-bg: var(--entry);
+  --shadow: rgba(0, 0, 0, 0.08);
+  --shadow-hover: rgba(0, 0, 0, 0.12);
+  --border: var(--border);
+
+  /* Badge colors for light theme */
+  --badge-technical-bg: #e7f3ff;
+  --badge-technical-color: #0056b3;
+  --badge-technical-border: #b3d7ff;
+
+  --badge-social-bg: #fff0f5;
+  --badge-social-color: #c2185b;
+  --badge-social-border: #f8bbd9;
+
+  --badge-general-bg: var(--hljs-bg);
+  --badge-general-color: var(--content);
+  --badge-general-border: var(--border);
+
+  /* Success color */
+  --success: #28a745;
+
+  /* Text colors */
+  --tertiary: #999;
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+  --shadow: rgba(0, 0, 0, 0.3);
+  --shadow-hover: rgba(0, 0, 0, 0.5);
+
+  /* Badge colors for dark theme */
+  --badge-technical-bg: rgba(231, 243, 255, 0.1);
+  --badge-technical-color: #66b3ff;
+  --badge-technical-border: rgba(179, 215, 255, 0.3);
+
+  --badge-social-bg: rgba(255, 240, 245, 0.1);
+  --badge-social-color: #ff6bb3;
+  --badge-social-border: rgba(248, 187, 217, 0.3);
+
+  --badge-general-bg: var(--hljs-bg);
+  --badge-general-color: var(--content);
+  --badge-general-border: var(--border);
+
+  /* Success color for dark theme */
+  --success: #28a745;
+
+  /* Text colors for dark theme */
+  --tertiary: #888;
+}
+
+/* Ensure proper contrast and readability */
+.meeting-card {
+  color: var(--content);
+}
+
+.meeting-card .date {
+  color: var(--content);
+}
+
+.meeting-card .time {
+  color: var(--secondary);
+}
+
+/* Override any hardcoded colors that might conflict */
+.info-card,
+.meeting-card {
+  border: 1px solid var(--border);
+}
+
+.card-footer {
+  border-top-color: var(--border);
+}
+
+/* Ensure text remains readable in both themes */
+.agenda-preview,
+.meeting-location-summary,
+.meeting-summary {
+  color: var(--secondary);
+}
+
+.meeting-title a {
+  color: var(--primary);
+}
+
+.meeting-title a:hover {
+  color: var(--tertiary);
+}

@@ -1,0 +1,227 @@
+{{ $limit := .Get "limit" | default 10 }}
+{{ $year := .Get "year" }}
+{{ $type := .Get "type" }}
+{{ $showSummary := .Get "summary" | default true }}
+
+{{ $meetings := slice }}
+
+{{/* Filter meetings based on parameters */}}
+{{ range (where site.RegularPages "Section" "meetings") }}
+  {{ $include := true }}
+
+  {{/* Filter by year if specified */}}
+  {{ if $year }}
+    {{ if ne (.Date.Format "2006") $year }}
+      {{ $include = false }}
+    {{ end }}
+  {{ end }}
+
+  {{/* Filter by meeting type if specified */}}
+  {{ if $type }}
+    {{ if ne .Params.meetingType $type }}
+      {{ $include = false }}
+    {{ end }}
+  {{ end }}
+
+  {{ if $include }}
+    {{ $meetings = $meetings | append . }}
+  {{ end }}
+{{ end }}
+
+{{/* Sort meetings by date (newest first) */}}
+{{ $meetings = sort $meetings ".Date" "desc" }}
+
+{{/* Apply limit */}}
+{{ if gt $limit 0 }}
+  {{ $meetings = first $limit $meetings }}
+{{ end }}
+
+<div class="meetings-list">
+  {{ if $meetings }}
+    {{ range $meetings }}
+      <article class="meeting-item">
+        <header class="meeting-header">
+          <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <div class="meeting-meta">
+            <span class="meeting-date">📅 {{ .Date.Format "January 2, 2006 (Monday)" }}</span>
+            {{ with .Params.meetingType }}
+              <span class="meeting-type meeting-type-{{ . }}">{{ . | title }}</span>
+            {{ end }}
+            {{ $meetingLocation := .Params.location }}
+            {{ if not $meetingLocation }}
+              {{ $meetingLocation = .Scratch.Get "meetingLocation" }}
+            {{ end }}
+            {{ if $meetingLocation }}
+              <span class="meeting-location">📍 {{ $meetingLocation }}</span>
+            {{ end }}
+          </div>
+        </header>
+
+        {{ $agendaContent := "" }}
+        {{ $agendaMatch := findRE `\{\{< meeting-agenda >\}([\s\S]*?)\{\{< /meeting-agenda >\}` .Content 1 }}
+        {{ if $agendaMatch }}
+          {{ $agendaContent = index $agendaMatch 0 | replaceRE `\{\{< meeting-agenda >\}` "" | replaceRE `\{\{< /meeting-agenda >\}` "" | markdownify }}
+        {{ end }}
+
+        {{ if $agendaContent }}
+          <div class="meeting-agenda">
+            <h4>Agenda:</h4>
+            {{ $agendaContent }}
+          </div>
+        {{ end }}
+
+        {{ if $showSummary }}
+          {{ with .Summary }}
+            <div class="meeting-summary">
+              {{ . }}
+            </div>
+          {{ end }}
+        {{ end }}
+
+        {{ with .Params.speakers }}
+          <div class="meeting-speakers">
+            <strong>Speakers:</strong> {{ delimit . ", " }}
+          </div>
+        {{ end }}
+
+        <footer class="meeting-footer">
+          <a href="{{ .Permalink }}" class="read-more">Read more →</a>
+        </footer>
+      </article>
+    {{ end }}
+  {{ else }}
+    <div class="no-meetings">
+      <p>No meetings found matching your criteria.</p>
+    </div>
+  {{ end }}
+</div>
+
+<style>
+.meetings-list {
+  margin: 1rem 0;
+}
+
+.meeting-item {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: box-shadow 0.2s ease;
+}
+
+.meeting-item:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.meeting-header h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+}
+
+.meeting-header h3 a {
+  color: #2c3e50;
+  text-decoration: none;
+}
+
+.meeting-header h3 a:hover {
+  color: #3498db;
+  text-decoration: underline;
+}
+
+.meeting-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.meeting-type {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.meeting-type-technical {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.meeting-type-social {
+  background: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.meeting-type-general {
+  background: #e8f5e8;
+  color: #388e3c;
+}
+
+.meeting-summary {
+  margin: 1rem 0;
+  color: #495057;
+  line-height: 1.6;
+}
+
+.meeting-agenda {
+  background: #f0f8ff;
+  border: 1px solid #cce5ff;
+  border-left: 4px solid #007bff;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.meeting-agenda h4 {
+  margin-top: 0;
+  color: #0056b3;
+}
+
+.meeting-agenda ul {
+  margin-bottom: 0;
+}
+
+.meeting-speakers {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.meeting-footer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.read-more {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+.no-meetings {
+  text-align: center;
+  padding: 2rem;
+  color: #6c757d;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .meeting-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+</style>

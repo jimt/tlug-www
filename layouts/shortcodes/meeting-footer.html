@@ -1,0 +1,274 @@
+{{ $meetingType := .Page.Params.meetingType | default "general" }}
+
+<div class="meeting-footer">
+    {{ if eq $meetingType "technical" }}
+    <div class="about-technical">
+        <h3>About TLUG Technical Meetings</h3>
+        <p>
+            TLUG technical meetings are open to all Linux users and friends.
+            Whether you're a seasoned system administrator, a developer, or just
+            getting started with Linux, you're welcome to join us. Our
+            presentations cover a wide range of topics from system
+            administration and development to new technologies and tools in the
+            Linux ecosystem.
+        </p>
+
+        <p>These meetings provide an excellent opportunity to:</p>
+        <ul>
+            <li>Learn about new Linux technologies and tools</li>
+            <li>
+                Share knowledge and experiences with fellow Linux enthusiasts
+            </li>
+            <li>Network with professionals in the Tokyo tech community</li>
+            <li>Get help with Linux-related questions and challenges</li>
+        </ul>
+
+        <p>
+            Presentations are typically in English, but questions and
+            discussions can be in either English or Japanese. All skill levels
+            are welcome!
+        </p>
+    </div>
+    {{ else if eq $meetingType "social" }}
+    <div class="about-social">
+        <h3>About TLUG Nomikai</h3>
+        <p>
+            Our nomikai (drinking parties) are informal social gatherings where
+            TLUG members and friends get together to relax, chat, and enjoy good
+            food and drinks. These events are primarily social, though Linux and
+            technology topics often come up naturally in conversation.
+        </p>
+
+        <p>Nomikai events are perfect for:</p>
+        <ul>
+            <li>Meeting other Linux users in a relaxed setting</li>
+            <li>
+                Casual discussions about technology, work, and life in Tokyo
+            </li>
+            <li>Building friendships within the community</li>
+            <li>Newcomers to get acquainted with TLUG members</li>
+        </ul>
+
+        <p>
+            Everyone is welcome, including non-Linux users who are curious about
+            our community!
+        </p>
+    </div>
+    {{ else }}
+    <div class="about-general">
+        <h3>About TLUG Meetings</h3>
+        <p>
+            The Tokyo Linux Users Group (TLUG) has been bringing together Linux
+            enthusiasts in Tokyo since 1994. Our meetings provide a forum for
+            learning, sharing knowledge, and connecting with fellow users of
+            Linux and open source software.
+        </p>
+
+        <p>
+            All meetings are open to the public and free to attend. We welcome
+            users of all experience levels, from beginners to experts, and
+            encourage participation from anyone interested in Linux, open source
+            software, or technology in general.
+        </p>
+    </div>
+    {{ end }}
+
+    <div class="tlug-info">
+        <h3>About TLUG</h3>
+        <p>
+            The Tokyo Linux Users Group is one of the oldest and most active
+            Linux user groups in Japan. Founded in 1994, we've been promoting
+            Linux and open source software in the Tokyo area for over two
+            decades.
+        </p>
+
+        <div class="tlug-links">
+            <h4>Stay Connected</h4>
+            <ul class="connection-links">
+                <li>
+                    <a
+                        href="https://lists.tlug.jp/"
+                        target="_blank"
+                        rel="noopener"
+                        >📧 Mailing Lists</a
+                    >
+                    - Join our discussions
+                </li>
+                <li>
+                    <a
+                        href="https://matrix.to/#/#tlug:matrix.org"
+                        target="_blank"
+                        rel="noopener"
+                        >💬 Matrix Chat</a
+                    >
+                    - Real-time chat
+                </li>
+                <li>
+                    <a
+                        href="https://mastodon.social/@tlug"
+                        target="_blank"
+                        rel="noopener"
+                        >🐘 Mastodon</a
+                    >
+                    - Follow us on the Fediverse
+                </li>
+                <li>
+                    <a
+                        href="https://bsky.app/profile/tokyolinux.bsky.social"
+                        target="_blank"
+                        rel="noopener"
+                        >🌐 Bluesky</a
+                    >
+                    - Social updates
+                </li>
+                <li>
+                    <a
+                        href="https://github.com/tlug"
+                        target="_blank"
+                        rel="noopener"
+                        >🔗 GitHub</a
+                    >
+                    - Our projects and code
+                </li>
+            </ul>
+        </div>
+
+        <div class="meeting-guidelines">
+            <h4>Meeting Guidelines</h4>
+            <ul>
+                <li>Please be respectful of all attendees and speakers</li>
+                <li>Turn off or silence mobile devices during presentations</li>
+                <li>
+                    Feel free to ask questions during designated Q&A periods
+                </li>
+                <li>
+                    Photography is generally welcome, but please ask presenters
+                    first
+                </li>
+                <li>
+                    Help us keep the venue clean by cleaning up after yourself
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<style>
+    .meeting-footer {
+        margin: 3rem 0 2rem 0;
+        padding: 2rem 0;
+        border-top: 2px solid #e9ecef;
+        color: #495057;
+    }
+
+    .meeting-footer h3 {
+        color: #333;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+    }
+
+    .meeting-footer h4 {
+        color: #495057;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+        font-size: 1.1rem;
+    }
+
+    .meeting-footer p {
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    .meeting-footer ul {
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+    }
+
+    .meeting-footer li {
+        margin-bottom: 0.5rem;
+    }
+
+    .about-technical,
+    .about-social,
+    .about-general {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        border-left: 4px solid #007bff;
+    }
+
+    .about-social {
+        border-left-color: #e91e63;
+    }
+
+    .tlug-info {
+        margin-top: 2rem;
+    }
+
+    .connection-links {
+        list-style: none;
+        padding-left: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 0.5rem;
+    }
+
+    .connection-links li {
+        margin-bottom: 0.5rem;
+    }
+
+    .connection-links a {
+        display: block;
+        padding: 0.5rem;
+        background: #f8f9fa;
+        border-radius: 4px;
+        text-decoration: none;
+        color: #495057;
+        transition: background-color 0.2s;
+    }
+
+    .connection-links a:hover {
+        background: #e9ecef;
+        text-decoration: none;
+    }
+
+    .meeting-guidelines {
+        margin-top: 1.5rem;
+        background: #fff8e1;
+        padding: 1rem;
+        border-radius: 6px;
+        border-left: 4px solid #ffc107;
+    }
+
+    .meeting-guidelines h4 {
+        margin-top: 0;
+        color: #856404;
+    }
+
+    .meeting-guidelines ul {
+        margin-bottom: 0;
+    }
+
+    .meeting-guidelines li {
+        color: #856404;
+    }
+
+    @media (max-width: 768px) {
+        .connection-links {
+            grid-template-columns: 1fr;
+        }
+
+        .meeting-footer {
+            padding: 1.5rem 0;
+        }
+
+        .about-technical,
+        .about-social,
+        .about-general {
+            padding: 1rem;
+        }
+    }
+</style>

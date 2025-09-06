@@ -1,0 +1,5 @@
+{{ $start := .Get "start" }} {{ $end := .Get "end" }} {{ $innerContent := .Inner
+}} {{/* Store schedule info in Scratch for use by other templates */}} {{
+$scheduleData := dict "start" $start "end" $end "notes" $innerContent }} {{
+.Page.Scratch.Set "meeting_schedule" $scheduleData }} {{/* This shortcode only
+stores data, no display output */}}

@@ -1,0 +1,29 @@
+[short title]  (best to avoid HTML markup here, keep it short, <br>s are OK)
+
+
+[longer page description]  (all the HTML you want, as many lines as you want)
+
+
+[captions]  (best to avoid HTML markup here, keep it short, <br>s are OK)
+
+SANY0215.jpg 
+SANY0216.jpg 
+SANY0217.jpg 
+SANY0218.jpg 
+SANY0219.jpg 
+SANY0220.jpg 
+SANY0221.jpg 
+SANY0222.jpg 
+SANY0223.jpg 
+
+[descriptions]  (all the HTML you want, but each file on just one line)
+
+SANY0215.jpg 
+SANY0216.jpg 
+SANY0217.jpg 
+SANY0218.jpg 
+SANY0219.jpg 
+SANY0220.jpg 
+SANY0221.jpg 
+SANY0222.jpg 
+SANY0223.jpg 

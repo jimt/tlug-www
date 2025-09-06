@@ -1,0 +1,6 @@
+{{ $venue := .Get "venue" }} {{ $map := .Get "map" }} {{ $website := .Get
+"website" }} {{ $innerContent := .Inner }} {{/* Store location info in Scratch
+for use by other templates */}} {{ $locationData := dict "venue" $venue "map"
+$map "website" $website "address" $innerContent }} {{ .Page.Scratch.Set
+"meeting_location" $locationData }} {{/* This shortcode only stores data, no
+display output */}}

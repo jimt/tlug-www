@@ -1,0 +1,158 @@
+X-RDate: Tue, 16 Dec 1997 18:45:57 +0900 (JST)
+Received: from misc.twics.com (misc.twics.com [192.135.222.5]) by
+ po.harenet.or.jp (8.8.8+2.7Wbeta7/3.6Wbeta7) with ESMTP id EAA01299 for
+ <schweiz@po.harenet.or.jp>; Tue, 16 Dec 1997 04:44:22 GMT
+Received: (from majordom@localhost) by misc.twics.com (8.8.6/8.8.6) id
+ WAA21593; Mon, 15 Dec 1997 22:29:52 -0500 (EST)
+Received: from Firewall.10Art-ni.CO.JP (root@Firewall.10art-ni.co.jp
+ [210.145.109.210]) by misc.twics.com (8.8.6/8.8.6) with ESMTP id MAA21580 for
+ <tlug@misc.twics.com>; Tue, 16 Dec 1997 12:29:35 +0900 (JST)
+Received: from ayakat.secure.10art-ni.co.jp ([172.16.0.10]) by
+ Firewall.10Art-ni.CO.JP (8.8.5/8.8.5) with ESMTP id MAA16661 for
+ <tlug@misc.twics.com>; Tue, 16 Dec 1997 12:29:23 +0900
+Message-ID: <3495F59D.3FFA155A@10art-ni.co.jp>
+Date: Tue, 16 Dec 1997 12:29:33 +0900
+Organization: 10artni corporation
+X-Mailer: Mozilla 4.01 [en] (Win95; I)
+MIME-Version: 1.0
+X-Priority: 3 (Normal)
+Content-Type: text/plain; charset=iso-2022-jp
+Content-Transfer-Encoding: 7bit
+Precedence: bulk
+Reply-To: tlug@misc.twics.com
+XFMstatus: 0000
+Sender: owner-tlug@misc.twics.com
+From: -ak- <ayakat@10art-ni.co.jp>
+To: tlug@misc.twics.com
+Subject: tlug: meeting note (in Japanese)
+
+Hi all,
+
+My co-worker Yohko and I had an excellent time at the last TLUG meeting,
+and would like to thank you all for encouraging us to join your group.
+We will definitely stay to help clean up after the next meeting.
+
+I've written a brief meeting note in Japanese. Actually it was suggested
+by Ken (Harada), and by writing this note I thought I would do something
+small to contribute to the group... It's mostly about what I saw and
+felt at the meeting (even though I meant to write something more
+group-oriented). I had to re-read Craig's posting and John(Little)'s web
+page to get the participants' names... but if I'm not getting things
+right (e.g., people's names, technical terms, etc.), corrections are
+more than welcome. Somehow, I don't quite trust myself with it... Please
+let me know what you think!
+
+Looking forward to seeing you all in January.
+
+Ayako
+
+-----
+
+さる１２月１３日、Linux愛好家の集まりであるTokyo Linux Users Group
+(TLUG)の会合に初参加しました。きっかけは、原田氏の linux-users-ML に投稿
+された一通のメッセージで、それにはこの会合の案内が日本語と原文の英語で書
+いてあり、興味を持ったのでTLUGのメイリングリストに参加してみたのです。初
+心者なのでちょっと無理かなー？と思ったのですが、メンバーの「興味があれば
+誰でも歓迎」の言葉に勇気づけられ、１２：３０に待ち合わせ場所の東京駅に向
+かいました。
+
+Linuxのステッカーを空に高く掲げた背の高い人物
+（http://www2.gol.com/gaijin/image/tldec00.jpg） と、Linux愛好家の雰囲気
+が漂う集団を発見。（ってどんな雰囲気でしょう？）
+
+昼食は駅の近くの中華料理屋で、和やかにとりました。
+（http://www2.gol.com/gaijin/image/tldec01.jpg） Linuxを「りぬくす」と呼
+ぶ人が多く、「らいなっくす」が若干名、でも Linux Japan誌が「りなっくす」
+なので日本ではそれが標準になるだろうね、という意見が出ました。やはりみな
+「相手にあわせ」ているそうです。
+
+東京駅地下街のstarbucksというコーヒーショップでラテとブラウニを購入し、
+（ここでシステム管理をされている女性が合流。女の子が増えてうれしかった
+。）会場であるHSBCジェームス・ケーペル証券会社の５階の会議室へと向かいま
+した。会場を手配してくださった Joe Marchak氏の短い挨拶のあとに、みなで自
+己紹介をしました。ほとんど英語でしたが、最年少の Yuriくんを含む何人かは
+日本語でした。Yuri くんとお父さんの Dmytro Kovalev氏はIBMのpalmtopマシン
+にLinuxを載せ、X を動かしてました。小学生であろうと思われる最年少メンバ
+ーが、最小Linuxマシンで日本語−英語辞書を自由に操る様子に、目が点になっ
+てしまうわたしでした。（いい時代になったものですねー。）
+
+会場にはSparcマシンのテーブルとIntelマシンのテーブルがありました。それぞ
+れデモやセットアップをてんでばらばらに行っていましたが、不思議にまとまり
+のある雰囲気でした。（http://www2.gol.com/gaijin/image/tldec04.jpg）
+SparcにRedHatが載っているのはわかるのですが、Intelの方もRedHatが圧倒的に
+人気でした。会社でSlackwareを使っている私たちには、RedHatの人気の高さは
+驚きでした。（私もクライアントとして使ってみたいのですが、会社のマシンに
+インストールできなくて何ヶ月も悩んでます。AsusのTX97-XEにAMD-K6を載せて
+そこに半分Ｗｉｎ９５が入っているのですが、HDD半分が遊んじゃってます。）
+
+Frank O'Carrol氏はBSDマシンにプロセッサを64個も搭載しているそうです。
+（で、あっているんでしょうか？いったいどういうことになっているのか想像も
+できません。自宅じゃできないですよねー。それとも私ぜんぜん違うものを想像
+しているんでしょうか？？謎が謎を呼ぶ。）とにかく、次回以降、高性能スーパ
+ーコンピューティングについてお話くださるそうなので、謎が少しでもあきらか
+になるでしょう。楽しみにしています。
+
+Gaspar Sinai 氏（だと思いますが、お名前を間違えていたらすみません。）は
+Yuditというunicode編集環境を少し見せてくれました。と言っても、私たちには
+「ギリシャ文字と日本語とハングル文字が同じ画面に出ている！！それも自在に
+編集できる！（すごい！）」としかわかりませんでしたが、私の友達もよく日本
+語とドイツ語を混在させるのに苦労しているようなので、これを使えば大変便利
+になると思いました。（でもその友達はMacintoshユーザ．．．）
+
+Craig Oda 氏は日本語環境について白板を使って説明をしていました。外国出身
+のメンバーが多いにもかかわらず、日本語環境への関心は高くて、日本語をない
+がしろにしがちな私は反省しました。Craig 氏のサイトも見て参考にしていま
+す。
+
+最近職場で3comのカードを買って懸賞でpilotをあてた人がいたのでJim
+Tittsler氏のXcopilot（pilotのための開発環境）のデモも興味深かったのです
+が、残念なことに最初のインターフェイスの紹介しか見ることができませんでし
+た。さらに、気がつかなかったのですが、Alberto Tomita氏はSparcテーブルの
+ほうでNISを設定して動かしていたそうです。こういう時ほど体が二つあったら
+なあ-と思うときはありません。
+
+これらのことが、誰が指揮をとるでもなく自発的に同時進行していました。参加
+者は興味の対象を自由気ままに追えるようになっていて、参加も帰るのも自由、
+夕方からはどこからともなくビールが出現してさらに和みました。次回からはな
+るべく目移りばかりしないように見たいものをしぼりたいと思いました。
+
+4時近くになって、賞品のあたるくじ引き（抽選会？）が行われました。500円で
+一回参加することができるこのくじ引きは、Jim Schweizer氏によるPerlスクリ
+プトによって参加者の名前をランダムに選ぶというしくみになってました。
+Sparcを当てるぞ！と意気込んでも私の名前はなかなか出てきませんでした。
+が、結局新品のキーボードやら雑誌やらステッカーをもらって、とても得した気
+分でした。
+
+これだけの行事は、影で支える人々の貢献があってできるものです。わたしは今
+回初めてで、行くまで気づかなかったのですが、実は行ってみると、会場でセッ
+トアップを行う、ものを運ぶ、掃除をする、マシンや他の必要な部品を提供す
+る、賞品になるものを提供する、司会進行を助ける、など手伝えることがいくら
+でもあるということです。予定があったので片づけを手伝わずに帰ってきてしま
+いましたが、これからもこの自由な雰囲気をこわさないためにはそういう自分勝
+手なことではいけないと思いました。（反省。）
+
+次回以降もぜひ！参加したいと思います。そして何かしらお手伝いもしたいと思
+います。（次回は一月に飲み会、2月の14日に会合が企画されているそうです。
+興味のあるかたはぜひ一緒に行きましょう。）
+
+この件について案内を出してくださった原田さんにも感謝したいと思います。
+
+かとうあやこ
+ayakat@10art-ni.co.jp
+
+--
+****-****-****-****-****-****-****-****-****-****
+
+The opinions expressed here are my own and do not
+necessarily reflect those of my employer. -ak
+
+****-****-****-****-****-****-****-****-****-****
+　
+　
+
+---------------------------------------------------------------
+TLUG Meeting: To be announced
+---------------------------------------------------------------
+a word from the sponsor:
+TWICS - Japan's First Public-Access Internet System
+www.twics.com  info@twics.com  Tel:03-3351-5977  Fax:03-3353-6096

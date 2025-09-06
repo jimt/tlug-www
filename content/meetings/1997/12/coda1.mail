@@ -1,0 +1,182 @@
+X-RDate: Mon, 15 Dec 1997 08:24:06 +0900 (JST)
+Received: from misc.twics.com (misc.twics.com [192.135.222.5]) by
+ po.harenet.or.jp (8.8.8+2.7Wbeta7/3.6Wbeta7) with ESMTP id RAA02945 for
+ <schweiz@po.harenet.or.jp>; Sun, 14 Dec 1997 17:03:04 GMT
+Received: (from majordom@localhost) by misc.twics.com (8.8.6/8.8.6) id
+ LAA07434; Sun, 14 Dec 1997 11:27:01 -0500 (EST)
+Received: from cow (craig@cow.farm.twics.com [202.237.148.225]) by
+ misc.twics.com (8.8.6/8.8.6) with SMTP id BAA07428 for <tlug@misc.twics.com>;
+ Mon, 15 Dec 1997 01:26:51 +0900 (JST)
+Date: Mon, 15 Dec 1997 01:21:26 +0900 (JST)
+X-Sender: craig@cow
+In-Reply-To: <199712141337.WAA01127@doe905f.sbi.com>
+Message-ID: <Pine.LNX.3.96LJ1.1b7.971215002401.6649A-100000@cow>
+MIME-Version: 1.0
+Content-Type: TEXT/PLAIN; charset=iso-2022-jp
+Precedence: bulk
+Reply-To: tlug@misc.twics.com
+XFMstatus: 0000
+Sender: owner-tlug@misc.twics.com
+From: Craig Oda <craig@twics.com>
+To: tlug@misc.twics.com
+Subject: Re: tlug: Re: December 13th
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Sun, 14 Dec 1997, John Little wrote:
+
+>   A short description and a few pictures of the Saturday meeting are
+>   now to be found at:-
+> 
+> 		http://www2.gol.com/gaijin#TLUG
+
+Awesome pictures!  The meeting was great.  
+
+I didn't even realize that you guys got NIS up on
+Sparky.
+
+Sorry I had to leave early to attend a company function
+and was unable to help with the cleanup.   
+
+There were about 27 people at the meeting, including three women,
+and 8 Japanese people.  Also of interest were Karl-Max from
+Germany (who lives in Germany) and Nick from Ukraine (who
+I think may live in Japan now).  
+
+Dmytro Kovalev and his son Yuri won for smallest Linux machine.
+They had it running on an IBM palmtop, complete with X windows.
+
+David Riley had to take a plane to get to the meeting.  He's
+one of the guys in a pony-tail sitting next to me in the
+Chinese restaurant picture.  
+
+Jim Tittsler showed me yet another UNIX command-line trick
+that I didn't know (make zImage &&make modules &&make modules_include).
+Joe and I were still using make zImage ; make modules ; \
+make modules_include. 
+
+Frank O' Carrol has 64 processors hooked up with gigabyte
+hardware and BSD.  Maybe one day, it will churn Linux.  :-)
+Frank agreed to give a talk on high-performance super-computing
+in the future.  If I remember correctly, he mentioned that
+he saw a 124 (around) processor Linux pyramid at a 
+conference and heard of projects to build ones close
+to 1,000 processors.   
+
+Gaspar Sinai probably had the second fastest box with his
+600mhz Alpha machine.  Unfortunately, I had to leave
+before his demonstration of Yudit unicode editor.
+
+Two of the new members, Ayako Kato and Yohko Kase, are
+working at a company that sells fully configured Linux
+servers for intranet/Internet use and supports them. 
+Amazing.  I spent about 30 minutes reading their web
+page at http://www.10art-ni.co.jp and found out that their
+company is very Java and very Linux oriented.  From
+their company's web page:
+
+   Linuxサーバーの優位点  
+   ・技術的にOpenであるため、多くのサポートが期待できる。
+   ・ベンダーに依存しない＝ユーザー主導型で自 由なコンピューティング
+    環境が実現できる。
+   ・低コストである。(Webサーバー、ファイル・プリントシェア、
+    Firewall、プロキシ等までFree)
+   ・多くのハードウェアに対応しているl 
+
+I had heard of several U.S. and European companies getting into
+commercial support of Linux and found it great that Japanese
+companies were out there openly promoting Linux for commercial
+use.   Perhaps we can ask them to speak or get one of their
+co-workers to speak on the commercial situation of Linux in the
+Japanese market.
+
+
+The meeting was a great success and in order to keep up with the
+growing interest in Linux, we should probably devise a strategy
+to minimize the workload on Joe Marchak for setup and cleanup.
+And/or have the meeting rotate between places.  We had a good
+turnout for the setup crew, but we may need to organize
+things so that people show up, set up, and then scramble to
+lunch.  We had two hubs and two physically seperated networks
+of Intel and Sparc architectures.  I'll bring this topic
+up again in the future.  
+
+My other thought was to set up a real agenda at the meeting
+and have a real lecture-style presentation for at least
+30 minutes of the meeting.   I was also thinking
+that during the hands-on section, we should designate an
+area as a novice area where an experienced Linux member
+explains things like UNIX/Linux system/network administration, 
+TCP/IP routing, or maybe even basics of Apache performance
+tuning, SQL database, or maybe even intermediate emacs usage.
+
+Or, maybe have parallel sessions of novice and intermediate.
+If we get over 30 people at the next meeting, there is 
+going to be a wide range of Linux knowledge and probably
+a wealth of information exchange possible.
+
+Personally, in addition to hearing more about parallel
+processing from Frank, Linux in the Japanese commercial
+market from Ayako and Yohko's company, I would love to
+hear from Kenichi Nakamura about what Cygnus in Japan
+is doing (or maybe getting a talk from the pres of Cygnus
+Japan?), John Little might be coaxed into giving a talk
+on what its like to manage a large TCP/IP Unix 
+high availability network in Japan, or maybe a talk from
+Joe's boss...     
+
+Anyway, a big thanks to Joe Marchak and John Little for
+making it all happen. 
+
+
+Regards,
+Craig
+
+
+P.S.  Good luck to Alberto Tomita on finishing his dissertation
+by Dec. 24.
+   
+
+Other notes:
+
+In response to the question about PGP 2.6.2 vs PGP 5.0 
+for Linux, it appears that the older PGP 2.6.2 uses
+RSA encryption and the default for PGP 5.0 is DSS/Diffie-Hellman.
+They don't appear to be compatible unless you set the
+PGP 5.0 program to use the RSA encryption.  However, the
+world appears to be moving to DSS/Diffie-Hellman, at least
+the PGP world.  
+
+Jim Tittsler reported some problems with compatibility
+after his upgrade to RedHat 5.0 glibc6.
+
+
+Say, on a non-related issue, what do I need to get the
+Japanese fonts to appear in GNU emacs 20.2?  They work fine
+in XEmacs, but it appears that the new GNU emacs is
+using some new scheme for displaying double-byte code.
+ 
+
+- ------
+craig@twics.com    
+PGP Public Key   http://www.twics.com/~craig/personal/pgp/
+
+
+-----BEGIN PGP SIGNATURE-----
+Version: PGP for Personal Privacy 5.0
+Charset: noconv
+
+iQA/AwUBNJQHn5rqxUftTwcVEQKNVACfbEAR2q4Q24dtvNc/VlPkZPF/Ud8Aniv0
+iKmJezyJbaZHUFFaFlQ/qRV4
+=cPGi
+-----END PGP SIGNATURE-----
+
+---------------------------------------------------------------
+TLUG Meeting Dec. 13, 12:30 at Tokyo station Yaesu Chuo ticket gate
+13:30 Starbuck's coffee.  13:45 HSBC | info: joem@hsbc.co.jp
+At least 3 functional Sparc IPC machines will be raffled out
+---------------------------------------------------------------
+a word from the sponsor:
+TWICS - Japan's First Public-Access Internet System
+www.twics.com  info@twics.com  Tel:03-3351-5977  Fax:03-3353-6096

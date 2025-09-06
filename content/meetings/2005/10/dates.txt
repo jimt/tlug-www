@@ -1,0 +1,18 @@
+# This is a one-time generated file (but updated whenever new images are added)
+# which records the timestamps of images for various purposes.  You can modify
+# any entry if you wish--makethumbs will not regenerate a timestamp unless
+# this file is completely removed or an image's entry in this file is removed.
+
+# Each line has three fields -- FILENAME | DATE | TIME .
+# DATE should be YYYY-MM-DD, but need not be.
+# TIME should be HH:MM, but need not be.
+
+SANY0215.jpg|2005-10-14|19:43
+SANY0216.jpg|2005-10-14|19:43
+SANY0217.jpg|2005-10-14|19:44
+SANY0218.jpg|2005-10-14|20:20
+SANY0219.jpg|2005-10-14|20:20
+SANY0220.jpg|2005-10-14|20:20
+SANY0221.jpg|2005-10-14|20:21
+SANY0222.jpg|2005-10-14|20:46
+SANY0223.jpg|2005-10-14|20:46

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns="http://purl.org/rss/1.0/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	>
+<channel rdf:about="http://tlug.jp/meetings/2005/03/200503.rss" >
+<title>2005 March Technical Meeting</title>
+<link>http://www.tlug.jp/meetings.php?year=2005&amp;month=03</link>
+<description>Not Available Yet</description>
+<language>en</language>
+<items>
+<rdf:Seq>
+<rdf:li resource="http://tlug.jp/meetings/2005/03/200503.rss"/>
+</rdf:Seq>
+</items>
+
+</channel>
+
+<item rdf:about="http://tlug.jp/meetings/2005/03/200503.rss">
+<title>TBD</title>	
+<description>
+TBD
+</description>
+<dc:date>2005-03-12</dc:date>
+</item>
+
+<item rdf:about="http://tlug.jp/meetings/2005/03/200503.rss">
+<title>other items in the agenda...</title>	
+<link>http://www.tlug.jp/meetings/meetings.php?year=2005&amp;month=03#3</link>
+<description>
+<ol>
+<li>introduction of new members, news about Linux/Open Source,
+   general announcements, Q&A</li>
+<li>auction</li>
+</ol>
+</description>
+<dc:date>2005-03-12</dc:date>
+</item>
+
+</rdf:RDF>

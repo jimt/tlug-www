@@ -1,0 +1,53 @@
+<table border="0" cellpadding="0" cellspacing="1" bgcolor="#999999">
+	<tr>
+	<td colspan="7" align="center" bgcolor="#ffffff">
+		<b><font color="#666666">August 2003</font></b>
+	</td>
+	</tr>
+	<!-- 1st week --> 	<tr bgcolor="#ffffff">
+		<td align="center" width="24"><b><font color="#999999">28</font></b></td>
+		<td align="center" width="24"><b><font color="#999999">29</font></b></td>
+		<td align="center" width="24"><b><font color="#999999">30</font></b></td>
+		<td align="center" width="24"><b><font color="#999999">31</font></b></td>
+		<td align="center" width="24"><b>1</b></td>
+		<td align="center" width="24" bgcolor="#ccccff"><b>2</b></td>
+		<td align="center" width="24" bgcolor="#ffcccc"><b>3</b></td>
+	</tr>
+	<!-- 2nd week --> 	<tr bgcolor="#ffffff">
+		<td align="center" width="24"><b>4</b></td>
+		<td align="center" width="24"><b>5</b></td>
+		<td align="center" width="24"><b>6</b></td>
+		<td align="center" width="24"><b>7</b></td>
+		<td align="center" width="24"><b>8</b></td>
+		<td align="center" width="24" bgcolor="#ccccff"><b><a href="meetings/meetings?year=2003&month=08" title="TLUG August Technical Meeting">TM</a></b></td>
+		<td align="center" width="24" bgcolor="#ffcccc"><b>10</b></td>
+	</tr>
+	<!-- 3rd week --> 	<tr bgcolor="#ffffff">
+		<td align="center" width="24"><b>11</b></td>
+		<td align="center" width="24"><b>12</b></td>
+		<td align="center" width="24"><b>13</b></td>
+		<td align="center" width="24"><b>14</b></td>
+		<td align="center" width="24"><b>15</b></td>
+		<td align="center" width="24" bgcolor="#ccccff"><b>16</b></td>
+		<td align="center" width="24" bgcolor="#ffcccc"><b>17</b></td>
+	</tr>
+	<!-- 4th week --> 	<tr bgcolor="#ffffff">
+		<td align="center" width="24"><b>18</b></td>
+		<td align="center" width="24"><b>19</b></td>
+		<td align="center" width="24"><b>20</b></td>
+		<td align="center" width="24"><b>21</b></td>
+		<td align="center" width="24"><b>22</b></td>
+		<td align="center" width="24" bgcolor="#ccccff"><b>23</b></td>
+		<td align="center" width="24" bgcolor="#ffcccc"><b>24</b></td>
+	</tr>
+	<!-- 5th week --> 	<tr bgcolor="#ffffff">
+		<td align="center" width="24"><b>25</b></td>
+		<td align="center" width="24"><b>26</b></td>
+		<td align="center" width="24"><b>27</b></td>
+		<td align="center" width="24"><b>28</b></td>
+		<td align="center" width="24"><b>29</b></td>
+		<td align="center" width="24" bgcolor="#ccccff"><b>30</b></td>
+		<td align="center" width="24" bgcolor="#ffcccc"><b>31</b></td>
+	</tr>
+</table>
+ 

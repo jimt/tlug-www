@@ -1,0 +1,45 @@
+/* Fix list indentation */
+.post-content ul,
+.meeting-content ul,
+.content ul,
+article ul {
+    padding-left: 2rem;
+    margin: 1rem 0;
+}
+
+.post-content ol,
+.meeting-content ol,
+.content ol,
+article ol {
+    padding-left: 2rem;
+    margin: 1rem 0;
+}
+
+/* Nested lists */
+.post-content ul ul,
+.meeting-content ul ul,
+.content ul ul,
+article ul ul,
+.post-content ol ol,
+.meeting-content ol ol,
+.content ol ol,
+article ol ol,
+.post-content ul ol,
+.meeting-content ul ol,
+.content ul ol,
+article ul ol,
+.post-content ol ul,
+.meeting-content ol ul,
+.content ol ul,
+article ol ul {
+    margin: 0.5rem 0;
+}
+
+/* List items spacing */
+.post-content li,
+.meeting-content li,
+.content li,
+article li {
+    margin: 0.25rem 0;
+    line-height: 1.6;
+}

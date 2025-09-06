@@ -1,0 +1,49 @@
+[short title]  (best to avoid HTML markup here, keep it short, <br>s are OK)
+
+
+[longer page description]  (all the HTML you want, as many lines as you want)
+
+
+[captions]  (best to avoid HTML markup here, keep it short, <br>s are OK)
+
+RIMG1020.jpg 
+RIMG1021.jpg 
+RIMG1022.jpg 
+RIMG1023.jpg 
+RIMG1024.jpg 
+RIMG1025.jpg 
+RIMG1026.jpg 
+RIMG1027.jpg 
+RIMG1028.jpg 
+RIMG1029.jpg 
+RIMG1030.jpg 
+RIMG1031.jpg 
+RIMG1032.jpg 
+RIMG1033.jpg 
+RIMG1034.jpg 
+RIMG1035.jpg 
+RIMG1036.jpg 
+RIMG1037.jpg 
+RIMG1038.jpg 
+
+[descriptions]  (all the HTML you want, but each file on just one line)
+
+RIMG1020.jpg 
+RIMG1021.jpg 
+RIMG1022.jpg 
+RIMG1023.jpg 
+RIMG1024.jpg 
+RIMG1025.jpg 
+RIMG1026.jpg 
+RIMG1027.jpg 
+RIMG1028.jpg 
+RIMG1029.jpg 
+RIMG1030.jpg 
+RIMG1031.jpg 
+RIMG1032.jpg 
+RIMG1033.jpg 
+RIMG1034.jpg 
+RIMG1035.jpg 
+RIMG1036.jpg 
+RIMG1037.jpg 
+RIMG1038.jpg 

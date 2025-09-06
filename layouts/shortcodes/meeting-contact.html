@@ -1,0 +1,134 @@
+{{ $email := .Get "email" | default "tlug@tlug.jp" }} {{ $mailingList := .Get
+"mailing-list" | default "https://lists.tlug.jp/" }} {{ $website := .Get
+"website" | default "https://tlug.onjapan.net" }} {{ $innerContent := .Inner }}
+
+<div class="meeting-contact">
+    <h3>📞 Contact & Information</h3>
+
+    {{ with $innerContent }}
+    <div class="contact-details">{{ . | markdownify }}</div>
+    {{ end }}
+
+    <div class="contact-methods">
+        <div class="contact-item">
+            <strong>📧 Email:</strong>
+            <a href="mailto:{{ $email }}" class="contact-link">{{ $email }}</a>
+        </div>
+
+        <div class="contact-item">
+            <strong>📮 Mailing List:</strong>
+            <a
+                href="{{ $mailingList }}"
+                target="_blank"
+                rel="noopener"
+                class="contact-link"
+                >Join our mailing list</a
+            >
+        </div>
+
+        <div class="contact-item">
+            <strong>🌐 Website:</strong>
+            <a
+                href="{{ $website }}"
+                target="_blank"
+                rel="noopener"
+                class="contact-link"
+                >{{ $website }}</a
+            >
+        </div>
+    </div>
+
+    <div class="contact-note">
+        <p>
+            <em
+                >For questions about this meeting, venue directions, or general
+                TLUG inquiries, please don't hesitate to reach out!</em
+            >
+        </p>
+    </div>
+</div>
+
+<style>
+    .meeting-contact {
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        border-left: 4px solid #6c757d;
+    }
+
+    .meeting-contact h3 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: #495057;
+    }
+
+    .contact-details {
+        color: #495057;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-details p {
+        margin: 0.5rem 0;
+    }
+
+    .contact-details p:first-child {
+        margin-top: 0;
+    }
+
+    .contact-details p:last-child {
+        margin-bottom: 0;
+    }
+
+    .contact-methods {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .contact-link {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .contact-link:hover {
+        color: #0056b3;
+        text-decoration: underline;
+    }
+
+    .contact-note {
+        background: #e9ecef;
+        padding: 1rem;
+        border-radius: 6px;
+        margin-top: 1rem;
+    }
+
+    .contact-note p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #6c757d;
+    }
+
+    @media (max-width: 768px) {
+        .meeting-contact {
+            padding: 1rem;
+        }
+
+        .contact-item {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.25rem;
+        }
+    }
+</style>

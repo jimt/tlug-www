@@ -1,0 +1,316 @@
+<style>
+    .upcoming-meeting {
+        background: #f8f9fa;
+        border-radius: 8px;
+        margin: 2rem 0;
+        border-left: 4px solid #888;
+        overflow: hidden;
+    }
+
+    .upcoming-meeting .upcoming-header {
+        background: rgba(248, 249, 250, 0.8);
+        padding: 1rem 1.5rem 0 1.5rem;
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .upcoming-meeting .header-label {
+        color: #6c757d;
+        font-size: 1rem;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+    .upcoming-meeting .upcoming-title {
+        margin: 0;
+        flex: 1;
+    }
+
+    .upcoming-meeting .upcoming-title a {
+        color: #212529;
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    .upcoming-meeting .upcoming-title a:hover {
+        color: #007bff;
+    }
+
+    .upcoming-meeting .upcoming-content {
+        padding: 0 1.5rem;
+    }
+
+    .upcoming-meeting .upcoming-details {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin: 1rem 0;
+    }
+
+    .upcoming-meeting .upcoming-schedule,
+    .upcoming-meeting .upcoming-location {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .upcoming-meeting .info-label {
+        font-size: 1.25rem;
+        flex-shrink: 0;
+        padding-top: 0.1rem;
+    }
+
+    .upcoming-meeting .schedule-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .upcoming-meeting .date-line {
+        font-size: 1.05rem;
+        color: #495057;
+        font-weight: 600;
+    }
+
+    .upcoming-meeting .time-line {
+        font-size: 0.95rem;
+        color: #6c757d;
+        font-weight: 500;
+    }
+
+    .upcoming-meeting .info-content {
+        font-size: 1.05rem;
+        color: #495057;
+        font-weight: 500;
+    }
+
+    .upcoming-meeting .upcoming-summary {
+        padding: 1rem 1rem;
+        background: white;
+        border-radius: 6px;
+        font-size: 1.05rem;
+        color: #495057;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        border: 1px solid #e9ecef;
+    }
+
+    .upcoming-meeting .upcoming-registration {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        background: linear-gradient(135deg, #fff5e6 0%, #ffedcc 100%);
+        border: 1px solid #ffc107;
+        border-radius: 6px;
+        margin-bottom: 1rem;
+    }
+
+    .upcoming-meeting .registration-icon {
+        font-size: 1.25rem;
+        flex-shrink: 0;
+    }
+
+    .upcoming-meeting .registration-text {
+        color: #856404;
+        font-size: 0.95rem;
+        font-weight: 600;
+    }
+
+    .upcoming-meeting .upcoming-actions {
+        margin-top: 1.25rem;
+    }
+
+    .upcoming-meeting .action-button {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+        border: 2px solid transparent;
+    }
+
+    .upcoming-meeting .action-button.primary {
+        background: #007bff;
+        color: white;
+        border-color: #007bff;
+    }
+
+    .upcoming-meeting .action-button.primary:hover {
+        background: #0056b3;
+        border-color: #0056b3;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.25);
+    }
+
+    .upcoming-meeting .action-button.secondary {
+        background: white;
+        color: #007bff;
+        border-color: #007bff;
+    }
+
+    .upcoming-meeting .action-button.secondary:hover {
+        background: #007bff;
+        color: white;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.25);
+    }
+
+    .upcoming-meeting .no-meeting {
+        text-align: center;
+    }
+
+    .upcoming-meeting .no-meeting-header {
+        background: rgba(248, 249, 250, 0.8);
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .upcoming-meeting .no-meeting-header h2 {
+        margin: 0;
+        color: #6c757d;
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    .upcoming-meeting .no-meeting-content {
+        padding: 1.5rem;
+    }
+
+    .upcoming-meeting .no-meeting-content p {
+        color: #6c757d;
+        font-size: 1.05rem;
+        line-height: 1.6;
+        margin: 0.75rem 0;
+    }
+
+    @media (max-width: 768px) {
+        .upcoming-meeting .upcoming-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .upcoming-meeting .upcoming-title a {
+            font-size: 1.25rem;
+        }
+
+        .upcoming-meeting .upcoming-details {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .upcoming-meeting .upcoming-schedule,
+        .upcoming-meeting .upcoming-location {
+            width: 100%;
+        }
+
+        .upcoming-meeting .upcoming-content {
+            padding: 1rem;
+        }
+
+        .upcoming-meeting .action-button {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+    }
+</style>
+
+{{ $currentDate := now }} {{ $upcomingMeeting := "" }} {{ $meetingFound := false
+}} {{/* Get all meetings and sort by date */}} {{ $allMeetings := where
+site.RegularPages "Section" "meetings" }} {{ $sortedMeetings := sort
+$allMeetings ".Date" }} {{/* Look for the next meeting after today */}} {{ range
+$sortedMeetings }} {{ if and (not $meetingFound) (.Date.After $currentDate) }}
+{{ $upcomingMeeting = . }} {{ $meetingFound = true }} {{ end }} {{ end }} {{/*
+Process meeting content to populate Scratch */}} {{ if $meetingFound }} {{
+$scratch := "" }} {{ $scratch = $upcomingMeeting.Content }} {{ end }}
+
+<div class="upcoming-meeting">
+    {{ if $meetingFound }} {{/* Get meeting details */}} {{ $meetingType :=
+    $upcomingMeeting.Params.meetingType | default "general" }} {{ $start := or
+    $upcomingMeeting.Params.start $upcomingMeeting.Params.startTime }} {{ $end
+    := or $upcomingMeeting.Params.end $upcomingMeeting.Params.endTime }} {{
+    $location := or $upcomingMeeting.Params.location
+    $upcomingMeeting.Params.venue }} {{/* Check for registration requirement
+    */}} {{ $registrationRequired := false }} {{ $registrationURL := "" }} {{ if
+    or $upcomingMeeting.Params.registrationRequired
+    $upcomingMeeting.Params.registration_required }} {{ $registrationRequired =
+    true }} {{ $registrationURL = $upcomingMeeting.Params.registrationURL }} {{
+    else if (findRE `meeting-registration.*required="true"`
+    $upcomingMeeting.RawContent) }} {{ $registrationRequired = true }} {{ end }}
+
+    <div class="upcoming-header">
+        <span class="header-label">🗓️ Next Meeting:</span>
+    </div>
+
+    <div class="upcoming-content">
+        <div class="upcoming-summary">
+            <h3>{{ $upcomingMeeting.Title }}</h3>
+            {{ $scheduleData := $upcomingMeeting.Scratch.Get "meeting_schedule"
+            }} {{ $locationData := $upcomingMeeting.Scratch.Get
+            "meeting_location" }}
+            <div class="upcoming-details">
+                <div class="upcoming-schedule">
+                    <span class="info-label">🕒</span>
+                    <div class="schedule-content">
+                        <div class="date-line">
+                            {{ $upcomingMeeting.Date.Format `January 2, 2006
+                            (Monday)` }}
+                        </div>
+                        {{ if $scheduleData }}
+                        <div class="time-line">
+                            {{ $scheduleData.start }}{{ if $scheduleData.end }}
+                            - {{ $scheduleData.end }}{{ end }}
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ if $locationData }}
+                <div class="upcoming-location">
+                    <span class="info-label">📍</span>
+                    <span class="info-content">{{ $locationData.venue }}</span>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+        {{ if $registrationRequired }}
+        <div class="upcoming-registration">
+            <span class="registration-icon">📝</span>
+            <span class="registration-text">Registration required</span>
+        </div>
+        {{ end }}
+
+        <div class="upcoming-actions">
+            <a
+                href="{{ $upcomingMeeting.Permalink }}"
+                class="action-button primary"
+            >
+                View Details{{ if $registrationRequired }} & Register{{ end }} →
+            </a>
+        </div>
+    </div>
+    {{ else }}
+    <div class="no-meeting">
+        <div class="no-meeting-header">
+            <h2>📅 No Upcoming Meetings</h2>
+        </div>
+        <div class="no-meeting-content">
+            <p>No meetings are currently scheduled.</p>
+            <p>Check back soon or join our mailing list for announcements!</p>
+            <div class="upcoming-actions">
+                <a href="/meetings/" class="action-button secondary"
+                    >View Past Meetings →</a
+                >
+            </div>
+        </div>
+    </div>
+    {{ end }}
+</div>

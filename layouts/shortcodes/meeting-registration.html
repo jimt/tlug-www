@@ -1,0 +1,7 @@
+{{ $required := .Get "required" | default false }} {{ $url := .Get "url" }} {{
+$notes := .Inner | markdownify }} {{ .Page.Scratch.Set "meeting_registration"
+(dict "required" $required "url" $url "notes" $notes ) }}
+
+<div class="meeting-registration-data" style="display: none">
+    <!-- Registration data stored in page scratch for use by display shortcodes -->
+</div>

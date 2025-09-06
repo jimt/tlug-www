@@ -1,0 +1,21 @@
+{{ $contacts := slice }} {{ $lines := split .Inner "\n" }} {{ range $lines }} {{
+$line := trim . " \t" }} {{ if ne $line "" }}
+<!-- Parse contact lines like "Name: phone" or "Name: phone, email" -->
+{{ if strings.Contains $line ":" }} {{ $parts := split $line ":" }} {{ if ge
+(len $parts) 2 }} {{ $name := trim (index $parts 0) " \t" }} {{ $contactInfo :=
+trim (index $parts 1) " \t" }} {{ $phone := "" }} {{ $email := "" }}
+
+<!-- Check if contact info contains both phone and email -->
+{{ if strings.Contains $contactInfo "," }} {{ $infoParts := split $contactInfo
+"," }} {{ $phone = trim (index $infoParts 0) " \t" }} {{ if ge (len $infoParts)
+2 }} {{ $email = trim (index $infoParts 1) " \t" }} {{ end }} {{ else if
+strings.Contains $contactInfo "@" }} {{ $email = $contactInfo }} {{ else }} {{
+$phone = $contactInfo }} {{ end }} {{ $contact := dict "name" $name }} {{ if ne
+$phone "" }} {{ $contact = merge $contact (dict "phone" $phone) }} {{ end }} {{
+if ne $email "" }} {{ $contact = merge $contact (dict "email" $email) }} {{ end
+}} {{ $contacts = $contacts | append $contact }} {{ end }} {{ end }} {{ end }}
+{{ end }} {{ .Page.Scratch.Set "meeting_contact" $contacts }}
+
+<div class="meeting-contact-data" style="display: none">
+    <!-- Contact data stored in page scratch for use by display shortcodes -->
+</div>

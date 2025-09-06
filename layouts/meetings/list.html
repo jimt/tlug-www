@@ -1,0 +1,223 @@
+{{ define "main" }}
+<div class="meetings-list">
+  <header class="page-header">
+    <h1>TLUG Meetings</h1>
+    <p class="page-description">
+      Welcome to the Tokyo Linux Users Group meetings archive. Here you'll find information about our past and upcoming technical presentations and social gatherings.
+    </p>
+  </header>
+
+  {{ $meetings := where site.RegularPages "Section" "meetings" }}
+  {{ $meetings := $meetings.ByDate.Reverse }}
+  {{ $currentYear := "" }}
+  {{ $upcomingMeetings := slice }}
+  {{ $pastMeetings := slice }}
+  {{ $now := now }}
+
+  {{ range $meetings }}
+    {{ if gt .Date $now }}
+      {{ $upcomingMeetings = $upcomingMeetings | append . }}
+    {{ else }}
+      {{ $pastMeetings = $pastMeetings | append . }}
+    {{ end }}
+  {{ end }}
+
+  {{ if $upcomingMeetings }}
+  <section class="upcoming-meetings">
+    <h2>Upcoming Meetings</h2>
+    <div class="meetings-grid">
+      {{ range $upcomingMeetings }}
+        {{ partial "meeting-card.html" (dict "page" . "type" "upcoming") }}
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{ if $pastMeetings }}
+  <section class="past-meetings">
+    <h2>Past Meetings</h2>
+    <div class="meetings-timeline">
+      {{ range $pastMeetings }}
+        {{ $meetingYear := .Date.Format "2006" }}
+        {{ if ne $meetingYear $currentYear }}
+          {{ if ne $currentYear "" }}
+            </div> <!-- Close previous year -->
+          {{ end }}
+          <div class="year-section">
+            <h3 class="year-header">{{ $meetingYear }}</h3>
+            <div class="year-meetings">
+              {{ $currentYear = $meetingYear }}
+        {{ end }}
+        {{ partial "meeting-card.html" (dict "page" . "type" "past") }}
+      {{ end }}
+      {{ if ne $currentYear "" }}
+        </div> <!-- Close meetings grid -->
+      </div> <!-- Close last year section -->
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <section class="meeting-info">
+    <div class="info-cards">
+      <div class="info-card">
+        <h3>🎯 Technical Meetings</h3>
+        <p>Monthly presentations covering Linux topics, open source software, system administration, development tools, and emerging technologies.</p>
+      </div>
+      <div class="info-card">
+        <h3>🍻 Nomikai (Social)</h3>
+        <p>Informal gatherings where members relax, network, and enjoy good food and drinks while discussing technology and life in Tokyo.</p>
+      </div>
+      <div class="info-card">
+        <h3>📋 How to Join</h3>
+        <p>All meetings are free and open to the public. No registration required unless specified. Just show up and introduce yourself!</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+.meetings-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.page-header {
+  text-align: center;
+  margin: 2rem 0 3rem 0;
+  padding: 2rem 0;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.page-header h1 {
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 2.5rem;
+}
+
+.page-description {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.upcoming-meetings,
+.past-meetings {
+  margin: 3rem 0;
+}
+
+.upcoming-meetings h2,
+.past-meetings h2 {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #007bff;
+}
+
+.past-meetings h2 {
+  border-bottom-color: #6c757d;
+}
+
+.meetings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.year-section {
+  margin-bottom: 3rem;
+}
+
+.year-header {
+  color: #495057;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid #dee2e6;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+}
+
+.year-meetings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.meeting-info {
+  margin: 4rem 0 2rem 0;
+  padding: 2rem 0;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.info-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.info-card h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 1.25rem;
+}
+
+.info-card p {
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    padding: 1rem 0;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .meetings-grid,
+  .year-meetings {
+    grid-template-columns: 1fr;
+  }
+
+  .info-cards {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .year-header {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  .meetings-list {
+    padding: 0 0.5rem;
+  }
+
+  .info-card {
+    padding: 1.5rem;
+  }
+}
+</style>
+{{ end }}

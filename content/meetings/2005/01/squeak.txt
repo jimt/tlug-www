@@ -1,0 +1,52 @@
+Good evening TLUGers,
+
+    Thanks to all that made it to my presentation in beautiful, sunny Tokyo. :-)
+
+This email is for those who had more interest in Squeak and wanted
+some useful links that I didn't put down at all in my presentation
+(sorry about that).
+
+Just for note, although these websites are very good resources a lot
+of the active action for Squeak tends to happen on the mailing lists.
+The ones I tend to follow are the Squeak Developers Mailing List (VERY
+high traffic), the Squeak VM Developers, the Squeak-ja (Japanese)
+mailing list, and the Open Croquet mailing lists.  I believe you
+should be able to find info on the mailing lists from the links below.
+
+Here is a select list of links I think would be interesting to
+TLUGers with some brief explanations of each:
+------------------------
+http://www.squeakland.org   ->  The main eToys resource.   You can download the
+                                Squeakland branch of Squeak which is aimed for children.
+                                This should also install a Squeak Plugin for your browser so
+                                you can publish Squeak projects on the web and be able to
+                                view them from a browser.
+
+http://www.squeakland.jp       ->  The Japanese version of above
+
+http://squeak.hp.infoseek.co.jp/nihongo.htm    ->    A website for the Japanese version of Squeak.
+                                                     I've not fully researched the differences between
+                                                     the squeakland.jp and this version.  But the
+                                                     this is where the Japanese version first came up.
+
+http://www.small-land.org      ->   This is the Spanish branch of Squeakland.  I think eventually
+                                    this will fold into the Squeakland eventually but it has slightly
+                                    different goals than the Squeakland folk.
+
+http://www.squeak.org            ->   The main web site for people who want to hack on Squeak.
+
+http://minnow.cc.gatech.edu/squeak     ->  A very large collection of information on Squeak.
+                                           A little cluttered and not all the information matches
+                                           what is happening but a very large and useful resource.
+
+http://www.edu.soc.i.kyoto-u.ac.jp/c5-05/       ->   Conference on Creating, Connecting, and Collaborating
+                                                     through Computing.  Lots of Squeakers will show be here.
+                                                     It's at the end of this month.  If anyone is going hopefully I'll
+                                                     see you there
+
+http://www.edu.city.kyoto.jp/school/alankay/    ->  The ALAN-K project in Kyoto
+
+http://hw001.gate01.com/~thoru/squeak/funsqueak.html  -> Fun Fun Fun Squeak. A great resource on learning
+                                                         eToys in japanese.
+
+http://www.opencroquet.org          -> Drink the 3-D Koolaid

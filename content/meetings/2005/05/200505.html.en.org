@@ -1,0 +1,48 @@
+<br>
+
+<table border="0" cellpadding="3" cellspacing="1" width="90%" bgcolor="#ff9933" /><tr>
+		<td bgcolor="#ffffff" /><b><font color="#ff9933" />TLUG Technical Meeting</font></b></td></tr>
+</table><br>
+
+<table bgcolor="#cccccc" border="0" width="90%" cellpadding="1" cellspacing="1" />
+	<tr bgcolor="#ffffff" />
+		<td width="80" valign="top" /><font color="#666666" /><b>Date</b></font></td>
+		<td>May 14th, 2005 (Saturday) - <b>TENTATIVE</b><br></td>
+	</tr>
+	<tr bgcolor="#ffffff" />
+		<td width="80" valign="top" /><font color="#666666" /><b>Time</b></font></td>
+		<td>14:00-16:30<br>(doors open 13:30)<br></td>
+	</tr>
+	<tr bgcolor="#ffffff" />
+		<td width="80" valign="top" /><font color="#666666" /><b>At</b></font></td>
+		<td>
+		Ubiquitous Business Technology meeting room<br>
+			  3-42-5 Hongo, Boa Building 2F<br>
+				    Bunkyo-ku, Tokyo<br>
+					      113-0033<br>
+			[ <a href="http://www.ubit.com/english/access.html" target="_blank">English Map</a> ]
+			[ <a href="http://www.ubit.com/company/map.html" target="_blank">Japanese map</a> ]<br>
+<br>
+			( These instructions might help too ...<a href="http://www.tlug.jp/meetings/ubit-directions.html" target="_blank"> Walking Directions </a>  )<br>
+		</td>
+	</tr>
+	<tr bgcolor="#ffffff" />
+		<td width="80" valign="top" />&nbsp;</td>
+		<td>
+<p>
+<ol>
+<li><b> T.B.A. </b></li>
+</p>
+</ol>
+</p>
+Any instructions or info before the meeting:<br><br>
+Zev Blut       ............... 090-5788-8067<br>
+Alberto Tomita ............... 080-3463-9256<br>
+																		 </p>
+
+		</td>
+	</tr>
+
+
+</table>
+<br>

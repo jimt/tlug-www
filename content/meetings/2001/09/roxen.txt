@@ -1,0 +1,97 @@
+From: Martin Baehr <mbaehr@email.archlab.tuwien.ac.at>
+Date: Wed, 19 Sep 2001 08:23:52 +0200
+To: tlug@tlug.gr.jp
+Subject: roxen talk link summary
+
+hi,
+
+since i can not put the slides from my talk online yet,
+below is a summary of links:
+
+
+i'd like to thank you all for a wonderfull afternoon and evening.
+i enjoyed the time in tokyo very much, and i must say,
+it's a city i could live in.
+
+i am currently in ena, and there are a bunch more places on my list to visit.
+though i hope to be able to come back to tokyo for a few days towards the end
+of october, because i need to visit the chinese embassy to arrange a visa,
+since i want to go there in november.
+
+if any one of you could spare a little corner for me, please tell me.
+you can ask jack about my qualities as a guest ;-)
+
+i am always interrested in meeting new people anywhere in japan,
+so if you know anyone else who would like to meet an austrian...
+
+
+======================================
+the links:
+
+lake roxen
+http://www.galactic-guide.com/articles/8S19.html
+
+roxen products
+http://www.roxen.com/products/
+http://www.roxen.com/products/platform/
+
+supported platforms
+http://www.roxen.com/products/platform/tech-features.xml?page=2
+
+supported databases
+http://www.roxen.com/products/platform/tech-features.xml?page=6
+
+graphic generation examples
+http://www.roxen.com/products/platform/gtext.xml
+
+pike
+http://pike.roxen.com/
+
+language comparison
+http://www.r2systems.com/LangTest/
+
+roxen users
+http://www.roxen.com/company/references/real.xml
+http://www.roxen.com/company/references/uunet.xml
+http://source.riverweb.com/providers/
+
+mailinglists:
+roxen    http://www.roxen.com/support/open_resources.xml
+pike     http://pike.roxen.com/forum/
+caudium  http://www.caudium.org/lists/
+
+roxen community
+http://community.roxen.com/
+
+roxen module source
+http://source.riverweb.com/
+
+caudium
+http://www.caudium.org/
+===============================================
+
+greetings, martin.
+-- 
+by the end of 2001 i'd like to find a new job anywhere in the world, doing
+pike development and/or training and/or unix and roxen system administration.
+--
+pike programmer     Traveling in New Zealand         (www|db).hb2.tuwien.ac.at
+unix                (iaeste|bahai).or.at     (www.archlab|iaeste).tuwien.ac.at 
+systemadministrator (stuts|black.linux-m68k).org mud.at is.(schon.org|root.at)
+Martin B"ahr        http://www.iaeste.or.at/~mbaehr/
+-- 
+by the end of 2001 i'd like to find a new job anywhere in the world, doing
+pike development and/or training and/or unix and roxen system administration.
+--
+pike programmer     Traveling in Japan               (www|db).hb2.tuwien.ac.at
+unix                (iaeste|bahai).or.at     (www.archlab|iaeste).tuwien.ac.at 
+systemadministrator (stuts|black.linux-m68k).org mud.at is.(schon.org|root.at)
+Martin B"ahr        http://www.iaeste.or.at/~mbaehr/
+
+-----------------------------------------------------------------------
+Next Nomikai Meeting:    Fri, Oct 19 19:30-  Tengu Tokyo Eki-Mae
+Next Technical Meeting:  Sat, Nov 10 13:30-  
+-----------------------------------------------------------------------
+more info: http://www.tlug.gr.jp           Sponsor: Global Online Japan
+
+

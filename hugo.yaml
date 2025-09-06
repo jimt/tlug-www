@@ -1,0 +1,79 @@
+baseURL: "https://tlug.onjapan.net"
+title: "Tokyo Linux Users Group"
+languageCode: "en"
+defaultContentLanguage: "en"
+#theme: ["PaperMod"]
+buildFuture: true
+
+# Basic site configuration
+#paginate: 10
+enableRobotsTXT: true
+#enableGitInfo: true
+
+# Markup configuration
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: github
+    lineNos: true
+
+# Menu configuration
+menu:
+  main:
+    - name: "Meetings"
+      url: "/meetings/"
+      weight: 10
+    - name: "Mailing Lists"
+      url: "https://lists.tlug.jp/"
+      weight: 20
+
+# Site parameters
+params:
+  description: "The Tokyo Linux Users Group - Promoting Linux and Open Source in Tokyo"
+  author: "Tokyo Linux Users Group"
+  socialIcons:
+    - name: "matrix"
+      url: "https://matrix.to/#/#tlug:matrix.org"
+    - name: "bluesky"
+      url: "https://bsky.app/profile/tokyolinux.bsky.social"
+    - name: "mastodon"
+      url: "https://mastodon.social/@tlug"
+    - name: "X"
+      url: "https://twitter.com/TokyoLUG"
+    - name: "facebook"
+      url: "https://facebook.com/tokyo.linux/"
+    - name: "GitHub"
+      url: "https://github.com/tlugjp"
+      icon: "github"
+
+# Output formats
+outputs:
+  home: ["HTML", "RSS"]
+  page: ["HTML"]
+  section: ["HTML", "RSS"]
+
+# Permalinks
+permalinks:
+  meetings: "/meetings/:year/:month/"
+
+# Build configuration
+build:
+  writeStats: true
+
+# Ignore HTML that doesn't have frontmatter:
+ignore:
+  - "\\.html\\.en$"
+  - "\\.html\\.en\\.org$"
+  - "\\.html\\.ja$"
+  - "\\.php$"
+  - "photos\\.html$"
+  - "slideshow.*\\.html$"
+  - "roxen\\.html$"
+  - "nomikai\\.html$"
+  - ".*[0-9]\\.html$"
+
+module:
+  imports:
+    - path: github.com/adityatelange/hugo-PaperMod

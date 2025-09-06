@@ -1,0 +1,54 @@
+{{ $agendaItems := slice }} {{ $content := .Inner | markdownify }}
+
+<!-- Parse the inner content to extract agenda items -->
+{{ $lines := split .Inner "\n" }} {{ $currentItem := dict }} {{ $inItem := false
+}} {{ range $lines }} {{ $line := trim . " \t" }}
+
+<!-- Check for presentation headers -->
+{{ if and (hasPrefix $line "### ") (not (hasPrefix $line "### Break")) }} {{ if
+$inItem }} {{ $agendaItems = $agendaItems | append $currentItem }} {{ end }} {{
+$title := strings.TrimPrefix $line "### " }} {{ $currentItem = dict "type"
+"presentation" "title" $title "description" "" }} {{ $inItem = true }}
+
+<!-- Check for presenter line -->
+{{ else if hasPrefix $line "**By:" }} {{ $presenter := strings.TrimSuffix
+(strings.TrimPrefix $line "**By: ") "**" }} {{ $currentItem = merge $currentItem
+(dict "presenter" $presenter) }}
+
+<!-- Check for duration line -->
+{{ else if hasPrefix $line "**Duration:" }} {{ $duration := strings.TrimSuffix
+(strings.TrimPrefix $line "**Duration: ") "**" }} {{ $currentItem = merge
+$currentItem (dict "duration" $duration) }}
+
+<!-- Check for break -->
+{{ else if hasPrefix $line "### Break" }} {{ if $inItem }} {{ $agendaItems =
+$agendaItems | append $currentItem }} {{ end }} {{ $title := strings.TrimPrefix
+$line "### " }} {{ $currentItem = dict "type" "break" "title" $title }} {{
+$agendaItems = $agendaItems | append $currentItem }} {{ $inItem = false }}
+
+<!-- Check for general agenda section -->
+{{ else if hasPrefix $line "## " }} {{ if $inItem }} {{ $agendaItems =
+$agendaItems | append $currentItem }} {{ end }} {{ $title := strings.TrimPrefix
+$line "## " }} {{ $currentItem = dict "type" "general" "title" $title "items"
+(slice) }} {{ $inItem = true }}
+
+<!-- Check for bullet points under general items -->
+{{ else if and (hasPrefix $line "- ") $inItem (eq $currentItem.type "general")
+}} {{ $item := strings.TrimPrefix $line "- " }} {{ $items := $currentItem.items
+| default (slice) }} {{ $items = $items | append $item }} {{ $currentItem =
+merge $currentItem (dict "items" $items) }}
+
+<!-- Accumulate description lines for presentations -->
+{{ else if and $inItem (eq $currentItem.type "presentation") (ne $line "") }} {{
+$desc := $currentItem.description | default "" }} {{ if ne $desc "" }} {{ $desc
+= printf "%s\n%s" $desc $line }} {{ else }} {{ $desc = $line }} {{ end }} {{
+$currentItem = merge $currentItem (dict "description" $desc) }} {{ end }} {{ end
+}}
+
+<!-- Add the last item if we were processing one -->
+{{ if $inItem }} {{ $agendaItems = $agendaItems | append $currentItem }} {{ end
+}} {{ .Page.Scratch.Set "meeting_agenda" $agendaItems }}
+
+<div class="meeting-agenda-data" style="display: none">
+    <!-- Agenda data stored in page scratch for use by display shortcodes -->
+</div>
