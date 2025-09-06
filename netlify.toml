@@ -3,19 +3,19 @@ publish = "public"
 command = "hugo --gc --minify"
 
 [build.environment]
-HUGO_VERSION = "0.128.0"
+HUGO_VERSION = "0.149.1"
 HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 
 [context.production.environment]
-HUGO_VERSION = "0.128.0"
+HUGO_VERSION = "0.149.1"
 HUGO_ENV = "production"
 
 [context.deploy-preview.environment]
-HUGO_VERSION = "0.128.0"
+HUGO_VERSION = "0.149.1"
 
 [context.branch-deploy.environment]
-HUGO_VERSION = "0.128.0"
+HUGO_VERSION = "0.149.1"
 
 # Headers for security and performance
 [[headers]]
