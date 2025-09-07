@@ -57,24 +57,21 @@ Registration is required for this event to help with planning.
 
 {{< meeting-header >}}
 
-{{< meeting-agenda >}}{{< /meeting-agenda >}}
+{{< meeting-agenda />}}
 
-<h2 id="introduction">Background</h2>
-<p>
-    All Linux lovers, and supporters of open source code and free software, in
-    the Kanto area (or anywhere else) are invited to attend the next Tokyo Linux
-    Users Group meeting. <b>Membership is open to anyone</b>. There are
-    currently <b>no membership dues</b> or entrance fees.
-</p>
-<p>
-    TLUG meetings are traditionally small and unstructured (VERY CASUAL). Most
-    of the benefit of the meeting comes from chatting with other Linux users and
-    having informal discussions.
-</p>
-<p>
-    As a general rule, the Technical Meetings are held on the 2nd Saturday of
-    odd-numbered months and the Nomikai Meetings are usually held on the 2nd
-    Friday of even-numbered months. There are, of course, exceptions to this
-    rule, so it is best to keep an eye on the mailing list, or check back here
-    for date/venue changes as the date approaches.
-</p>
+## Background {#introduction}
+
+All Linux lovers, and supporters of open source code and free software, in
+the Kanto area (or anywhere else) are invited to attend the next Tokyo Linux
+Users Group meeting. **Membership is open to anyone**. There are
+currently **no membership dues** or entrance fees.
+
+TLUG meetings are traditionally small and unstructured (VERY CASUAL). Most
+of the benefit of the meeting comes from chatting with other Linux users and
+having informal discussions.
+
+As a general rule, the Technical Meetings are held on the 2nd Saturday of
+odd-numbered months and the Nomikai Meetings are usually held on the 2nd
+Friday of even-numbered months. There are, of course, exceptions to this
+rule, so it is best to keep an eye on the mailing list, or check back here
+for date/venue changes as the date approaches.

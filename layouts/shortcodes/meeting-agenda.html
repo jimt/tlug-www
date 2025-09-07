@@ -77,46 +77,46 @@
         margin-bottom: 1.5rem;
     }
 
-    .agenda-items {
+    .meeting-agenda .agenda-items {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
     }
 
-    .agenda-item {
+    .meeting-agenda .agenda-item {
         padding: 1.25rem;
         border-radius: 8px;
         border-left: 4px solid;
     }
 
-    .agenda-item.presentation {
+    .meeting-agenda .agenda-item.presentation {
         background: #f8fff8;
         border-left-color: #28a745;
     }
 
-    .agenda-item.break {
+    .meeting-agenda .agenda-item.break {
         background: #fff8e1;
         border-left-color: #ffc107;
         text-align: center;
         padding: 0.75rem;
     }
 
-    .agenda-item.general {
+    .meeting-agenda .agenda-item.general {
         background: #f0f7ff;
         border-left-color: #007bff;
     }
 
-    .agenda-item.social {
+    .meeting-agenda .agenda-item.social {
         background: #fff0f5;
         border-left-color: #e91e63;
     }
 
-    .agenda-item.other {
+    .meeting-agenda .agenda-item.other {
         background: #f5f5f5;
         border-left-color: #6c757d;
     }
 
-    .agenda-header {
+    .meeting-agenda .agenda-header {
         display: flex;
         flex-wrap: wrap;
         align-items: baseline;
@@ -124,33 +124,33 @@
         margin-bottom: 0.75rem;
     }
 
-    .presentation-title,
-    .general-title,
-    .social-title {
+    .meeting-agenda .presentation-title,
+    .meeting-agenda .general-title,
+    .meeting-agenda .social-title {
         margin: 0;
         flex-grow: 1;
         color: #333;
     }
 
-    .presentation-title {
+    .meeting-agenda .presentation-title {
         color: #28a745;
     }
 
-    .general-title {
+    .meeting-agenda .general-title {
         color: #007bff;
     }
 
-    .social-title {
+    .meeting-agenda .social-title {
         color: #e91e63;
     }
 
-    .presenter {
+    .meeting-agenda .presenter {
         margin: 0;
         color: #666;
         font-size: 0.9rem;
     }
 
-    .duration {
+    .meeting-agenda .duration {
         background: rgba(0, 0, 0, 0.1);
         padding: 0.25rem 0.5rem;
         border-radius: 12px;
@@ -159,37 +159,37 @@
         white-space: nowrap;
     }
 
-    .break-title {
+    .meeting-agenda .break-title {
         margin: 0;
         color: #ffc107;
         font-size: 1.1rem;
     }
 
-    .presentation-description,
-    .general-description,
-    .social-description,
-    .description {
+    .meeting-agenda .presentation-description,
+    .meeting-agenda .general-description,
+    .meeting-agenda .social-description,
+    .meeting-agenda .description {
         margin-top: 0.75rem;
     }
 
-    .presentation-description ul,
-    .general-description ul,
-    .social-description ul,
-    .description ul {
+    .meeting-agenda .presentation-description ul,
+    .meeting-agenda .general-description ul,
+    .meeting-agenda .social-description ul,
+    .meeting-agenda .description ul {
         margin: 0.5rem 0;
         padding-left: 1.5rem;
     }
 
-    .general-items {
+    .meeting-agenda .general-items {
         margin: 0.75rem 0 0 0;
         padding-left: 1.5rem;
     }
 
-    .general-items li {
+    .meeting-agenda .general-items li {
         margin-bottom: 0.5rem;
     }
 
-    .cost {
+    .meeting-agenda .cost {
         margin-top: 0.75rem;
         padding: 0.5rem;
         background: rgba(233, 30, 99, 0.1);
@@ -197,7 +197,7 @@
         font-size: 0.95rem;
     }
 
-    .agenda-additional {
+    .meeting-agenda .agenda-additional {
         margin-top: 1.5rem;
         padding: 1rem;
         background: #f9f9f9;
@@ -205,26 +205,26 @@
         border-left: 3px solid #6c757d;
     }
 
-    .agenda-additional p {
+    .meeting-agenda .agenda-additional p {
         margin: 0.5rem 0;
     }
 
-    .agenda-additional p:first-child {
+    .meeting-agenda .agenda-additional p:first-child {
         margin-top: 0;
     }
 
-    .agenda-additional p:last-child {
+    .meeting-agenda .agenda-additional p:last-child {
         margin-bottom: 0;
     }
 
     @media (max-width: 768px) {
-        .agenda-header {
+        .meeting-agenda .agenda-header {
             flex-direction: column;
             align-items: flex-start;
             gap: 0.25rem;
         }
 
-        .duration {
+        .meeting-agenda .duration {
             align-self: flex-start;
         }
     }

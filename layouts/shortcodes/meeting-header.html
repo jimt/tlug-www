@@ -17,7 +17,6 @@ dict "start" (or .Page.Params.start .Page.Params.startTime) "end" (or
         <div class="meeting-meta">
             <div class="meeting-info-row">
                 <div class="meeting-schedule">
-                    <span class="info-label">🕒</span>
                     <div class="schedule-content">
                         <div class="date-line">
                             {{ $meetingDate.Format "January 2, 2006 (Monday)" }}
@@ -33,36 +32,37 @@ dict "start" (or .Page.Params.start .Page.Params.startTime) "end" (or
 
                 {{ with $location }} {{ if .venue }}
                 <div class="meeting-location">
-                    <span class="info-label">📍</span>
-                    <span class="info-content">{{ .venue }}</span>
-                </div>
-                {{ end }} {{ end }}
-                {{ with $location }} {{ if or .address .map .website }}
-                <div class="location-details">
-                    {{ with .address }}
-                    <div class="address">{{ . | markdownify }}</div>
-                    {{ end }}
-                    <div class="location-links">
-                        {{ with .map }}
-                        <a
-                            href="{{ . }}"
-                            target="_blank"
-                            rel="noopener"
-                            class="link-button"
-                        >
-                            🗺️ View Map
-                        </a>
-                        {{ end }} {{ with .website }}
-                        <a
-                            href="{{ . }}"
-                            target="_blank"
-                            rel="noopener"
-                            class="link-button"
-                        >
-                            🌐 Website
-                        </a>
-                        {{ end }}
+                    <div class="location-main">
+                        <span class="info-content">{{ .venue }}</span>
                     </div>
+                    {{ with $location }} {{ if or .address .map .website }}
+                    <div class="location-details">
+                        {{ with .address }}
+                        <div class="address">{{ . | markdownify }}</div>
+                        {{ end }}
+                        <div class="location-links">
+                            {{ with .map }}
+                            <a
+                                href="{{ . }}"
+                                target="_blank"
+                                rel="noopener"
+                                class="link-button"
+                            >
+                                🗺️ View Map
+                            </a>
+                            {{ end }} {{ with .website }}
+                            <a
+                                href="{{ . }}"
+                                target="_blank"
+                                rel="noopener"
+                                class="link-button"
+                            >
+                                🌐 Website
+                            </a>
+                            {{ end }}
+                        </div>
+                    </div>
+                    {{ end }} {{ end }}
                 </div>
                 {{ end }} {{ end }}
             </div>
@@ -71,34 +71,34 @@ dict "start" (or .Page.Params.start .Page.Params.startTime) "end" (or
             <div class="schedule-notes">{{ . | markdownify }}</div>
             {{ end }}
         </div>
-        {{ with $registration }} {{ if and .required (gt $meetingDate now) }}
-        <div class="registration-required">
-            <h3>Registration Required</h3>
-            {{ with .url }}
-            <p>
-                <a
-                    href="{{ . }}"
-                    class="btn btn-primary"
-                    target="_blank"
-                    rel="noopener"
-                    >Register Here</a
-                >
-            </p>
-            {{ end }} {{ with .note }}
-            <p class="registration-note">{{ . | markdownify }}</p>
-            <p>
-                <a
-                    href="{{ . }}"
-                    class="btn btn-primary"
-                    target="_blank"
-                    rel="noopener"
-                    >Register Here</a
-                >
-            </p>
-            {{ end }} {{ with .notes }}
-            <div class="registration-note">{{ . }}</div>
-            {{ end }}
-        </div>
+    </div>
+    {{ with $registration }} {{ if and .required (gt $meetingDate now) }}
+    <div class="registration-required">
+        <h3>Registration Required</h3>
+        {{ with .url }}
+        <p>
+            <a
+                href="{{ . }}"
+                class="btn btn-primary"
+                target="_blank"
+                rel="noopener"
+                >Register Here</a
+            >
+        </p>
+        {{ end }} {{ with .note }}
+        <p class="registration-note">{{ . | markdownify }}</p>
+        <p>
+            <a
+                href="{{ . }}"
+                class="btn btn-primary"
+                target="_blank"
+                rel="noopener"
+                >Register Here</a
+            >
+        </p>
+        {{ end }} {{ with .notes }}
+        <div class="registration-note">{{ . }}</div>
+        {{ end }}
     </div>
     {{ else }} {{ if gt $meetingDate now }} {{ with .notes }}
     <div class="registration-info">
@@ -116,71 +116,85 @@ dict "start" (or .Page.Params.start .Page.Params.startTime) "end" (or
         border-left: 4px solid #007bff;
     }
 
-    .meeting-basics h2 {
+    .meeting-header .meeting-basics h2 {
         margin-top: 0;
         color: #333;
         border-bottom: 2px solid #007bff;
         padding-bottom: 0.5rem;
     }
 
-    .meeting-meta {
+    .meeting-header .meeting-meta {
         margin-top: 1.5rem;
     }
 
-    .meeting-info-row {
+    .meeting-header .meeting-info-row {
         display: flex;
         flex-wrap: wrap;
         gap: 2rem;
-        align-items: center;
-        padding: 1rem;
-        background: #f8f9fa;
-        border-radius: 8px;
+        align-items: flex-start;
         margin-bottom: 1rem;
     }
 
-    .meeting-schedule,
-    .meeting-location {
+    .meeting-header .meeting-schedule,
+    .meeting-header .meeting-location {
         display: flex;
-        align-items: flex-start;
+        flex-direction: column;
         gap: 0.75rem;
         border: none;
     }
 
-    .meeting-schedule {
-        min-width: 250px;
+    .meeting-header .location-main {
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 0.5rem;
     }
 
-    .info-label {
-        font-size: 1.25rem;
-        flex-shrink: 0;
-        padding-top: 0.1rem;
-    }
-
-    .schedule-content {
+    .meeting-header .schedule-content {
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
     }
 
-    .date-line {
+    .meeting-header .meeting-schedule {
+        flex: 1;
+        min-width: 250px;
+    }
+
+    .meeting-header .meeting-location {
+        flex: 1;
+    }
+
+    .meeting-header .info-label {
+        font-size: 1.25rem;
+        flex-shrink: 0;
+        line-height: 1.2;
+    }
+
+    .meeting-header .date-line {
         font-size: 1.05rem;
         color: #495057;
         font-weight: 600;
+        line-height: 1.2;
+        margin: 0;
+        padding: 0;
     }
 
-    .time-line {
+    .meeting-header .time-line {
         font-size: 0.95rem;
         color: #6c757d;
         font-weight: 500;
     }
 
-    .info-content {
+    .meeting-header .info-content {
         font-size: 1.05rem;
         color: #495057;
-        font-weight: 500;
+        font-weight: 600;
+        line-height: 1.2;
+        margin: 0;
+        padding: 0;
     }
 
-    .schedule-notes {
+    .meeting-header .schedule-notes {
         padding: 0.75rem;
         background: #f8f9fa;
         border-radius: 6px;
@@ -190,30 +204,28 @@ dict "start" (or .Page.Params.start .Page.Params.startTime) "end" (or
         margin-bottom: 1rem;
     }
 
-    .location-details {
-        padding: 1rem;
+    .meeting-header .location-details {
         background: #f8f9fa;
         border-radius: 8px;
-        margin-bottom: 1rem;
     }
 
-    .address {
+    .meeting-header .address {
         color: #495057;
         line-height: 1.6;
         margin-bottom: 1rem;
     }
 
-    .address p {
+    .meeting-header .address p {
         margin: 0.25rem 0;
     }
 
-    .location-links {
+    .meeting-header .location-links {
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
     }
 
-    .link-button {
+    .meeting-header .link-button {
         display: inline-flex;
         align-items: center;
         padding: 0.5rem 1rem;
@@ -226,30 +238,31 @@ dict "start" (or .Page.Params.start .Page.Params.startTime) "end" (or
         transition: background-color 0.2s ease;
     }
 
-    .link-button:hover {
+    .meeting-header .link-button:hover {
         background: #0056b3;
         color: white;
         text-decoration: none;
     }
 
     @media (max-width: 768px) {
-        .meeting-info-row {
+        .meeting-header .meeting-info-row {
             flex-direction: column;
             align-items: flex-start;
             gap: 1rem;
         }
 
-        .meeting-schedule,
-        .meeting-location {
+        .meeting-header .meeting-schedule,
+        .meeting-header .meeting-location {
             width: 100%;
+            flex: none;
         }
 
-        .meeting-schedule {
+        .meeting-header .meeting-schedule {
             min-width: auto;
         }
     }
 
-    .registration-required {
+    .meeting-header .registration-required {
         background: #e7f3ff;
         padding: 1rem;
         border-radius: 6px;
@@ -257,7 +270,7 @@ dict "start" (or .Page.Params.start .Page.Params.startTime) "end" (or
         border: 1px solid #007bff;
     }
 
-    .registration-info {
+    .meeting-header .registration-info {
         background: #f0f7ff;
         padding: 1rem;
         border-radius: 6px;
@@ -265,7 +278,7 @@ dict "start" (or .Page.Params.start .Page.Params.startTime) "end" (or
         border: 1px solid #cce7ff;
     }
 
-    .btn {
+    .meeting-header .btn {
         display: inline-block;
         padding: 0.5rem 1rem;
         border-radius: 4px;
@@ -274,16 +287,16 @@ dict "start" (or .Page.Params.start .Page.Params.startTime) "end" (or
         text-align: center;
     }
 
-    .btn-primary {
+    .meeting-header .btn-primary {
         background: #007bff;
         color: white;
     }
 
-    .btn-primary:hover {
+    .meeting-header .btn-primary:hover {
         background: #0056b3;
     }
 
-    .registration-note {
+    .meeting-header .registration-note {
         font-size: 0.9rem;
         margin-top: 0.5rem;
         margin-bottom: 0;

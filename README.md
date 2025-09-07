@@ -18,3 +18,5 @@ using [Hugo](https://gohugo.io/) with the
 The content of the website is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
 
 This repository contains portions derived from the PaperMod theme with is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/87969890-6a80-436d-b53c-5e44c67d89b6/deploy-status)](https://app.netlify.com/projects/tlug-www/deploys)
