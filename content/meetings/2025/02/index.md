@@ -1,49 +1,35 @@
 ---
 title: "Technical Meeting"
-date: "2025-02-07"
+date: "2025-02-08"
 meetingType: "technical"
-tags: ["meetings", "legacy", "wiki", "technical"]
+tags: ["meetings", "wiki", "technical"]
+agenda:
+  - type: "presentation"
+    title: "Atproto, Bluesky, and open social networks"
+    presenter: "Edmund Edgar"
+    description: "Edmund will talk about AtProto, the protocol behind the Bluesky social network, and also a little bit on how other open social networks (Mastodon/Fediverse, Nostr, Farcaster) are designed."
+
 ---
 
-<h2 id="technical_meeting">Technical Meeting</h2>
-<h4 id="date">Date</h4>
-<p>February 8, 2025 (Saturday)</p>
-<h4 id="time">Time</h4>
-<p>14:00-16:00 Presentations with a 10 minute break around 15:00</p>
-<p>16:00-17:30 will be a Nomikai at Axsh’s Wine Bar with alcohol.</p>
-<p>From 17:45, the Soiree Wine Bar will start opening for business</p>
-<ul>
-    <li>
-        People interested in becoming paying customers for the Wine Bar, will be
-        welcome to stay.
-    </li>
-</ul>
-<ul>
-    <li>
-        People interested in moving on to another place will be asked to leave
-        by 17:45.
-    </li>
-</ul>
-<h4 id="location">Location</h4>
-<p>
-    Axsh<br />
-    Kitasando-R Bldg 1F<br />
-    3-24-8, Sendagaya<br />
-    151-0051 Shibuya-ku, Tokyo<br />
-    [ <a href="https://maps.app.goo.gl/3CRS3ovorqYZorsk8">map</a> ]
-</p>
-<h4 id="itinerary">Itinerary</h4>
-<h5 id="presentations">Presentations</h5>
-<h6 id="presentation_1">&lt;&lt; Presentation (1) &gt;&gt;</h6>
-<p>
-    <strong>“Atproto, Bluesky and open social networks”</strong> by
-    <em><font color="#CC2200">Edmund Edgar</font></em>
-</p>
-<p>
-    Edmund will talk about AtProto, the protocol behind the Bluesky social
-    network, and also a little bit on how other open social networks
-    (Mastodon/Fediverse, Nostr, Farcaster) are designed.
-</p>
+{{< meeting-schedule start="14:00" end="16:00" >}}
+* 14:00-16:00 Presentations with a 10 minute break around 15:00
+* 16:00-17:00 will be a Nomikai at Axsh’s Wine Bar with alcohol
+* People interested in becoming paying customers for the Wine Bar, will be welcome to stay.
+* People interested in moving on to another place will be asked to leave by 16:45.
+{{< /meeting-schedule >}}
+
+{{< meeting-location venue="Axsh" map="https://maps.app.goo.gl/3CRS3ovorqYZorsk8" website="" >}}
+
+Kitasando-R Bldg 1F<br />
+3-24-8, Sendagaya<br />
+151-0051 Shibuya-ku, Tokyo<br />
+[map](https://maps.app.goo.gl/3CRS3ovorqYZorsk8)
+{{< /meeting-location >}}
+
+{{< meeting-header >}}
+
+{{< meeting-agenda />}}
+
 <h5 id="other_items_on_the_agenda_are">Other items on the agenda are:</h5>
 <ol>
     <li>Introduction of new members</li>

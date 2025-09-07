@@ -1,42 +1,39 @@
 ---
 title: "Technical Meeting"
-date: "2025-04-18"
-meetingType: "social"
-tags: ["meetings","legacy","wiki","social"]
+date: "2025-04-19"
+meetingType: "technical"
+tags: ["meetings","wiki","technical"]
+agenda:
+  - type: "presentation"
+    title: "Introduction of open-source FPGA toolchains"
+    presenter: "Yimin Gu"
+    description: "FPGAs are powerful devices, but the mindset different from software development and the blackbox-like toolchains (and also ) makes it hard to start on. Yimin Gu will introduce the status of the newly emerged open-source FPGA toolchains. Some boards will be shown on-site."
+  - type: "presentation"
+    title: "How efficient are architectures x86/aarch/RISC-V etc. for a workload?"
+    presenter: "Christian Horn"
+    description: "Let's benchmark a cpu-bound workload over systems of various architectures, while measuring power consumption. Who will be most energy efficient? Christian will introduce the test setup, talk a bit about the used software. Then details on the benchmarked workload (“bzcat”), on the various systems he benchmarked, and then introduce and discuss the results."
+
 ---
 
-<h2 id="technical_meeting">Technical Meeting</h2>
-<h4 id="date">Date</h4>
-<p>April 19, 2025 (Saturday)</p>
-<h4 id="time">Time</h4>
-<p>14:00-16:00 Presentations with a 10 minute break around 15:00</p>
-<p>16:00-17:00 will be a Nomikai at Axsh’s Wine Bar with alcohol.</p>
-<ul>
-<li>People interested in becoming paying customers for the Wine Bar, will be welcome to stay.</li>
-</ul>
-<ul>
-<li>People interested in moving on to another place will be asked to leave by 16:45.</li>
-</ul>
-<h4 id="location">Location</h4>
-<p>Axsh<br />
+{{< meeting-schedule start="14:00" end="16:00" >}}
+* 14:00-16:00 Presentations with a 10 minute break around 15:00
+* 16:00-17:00 will be a Nomikai at Axsh’s Wine Bar with alcohol
+* People interested in becoming paying customers for the Wine Bar, will be welcome to stay.
+* People interested in moving on to another place will be asked to leave by 16:45.
+{{< /meeting-schedule >}}
+
+{{< meeting-location venue="Axsh" map="https://maps.app.goo.gl/3CRS3ovorqYZorsk8" website="" >}}
+
 Kitasando-R Bldg 1F<br />
 3-24-8, Sendagaya<br />
 151-0051 Shibuya-ku, Tokyo<br />
-[ <a href="https://maps.app.goo.gl/3CRS3ovorqYZorsk8">map</a> ]</p>
-<h4 id="itinerary">Itinerary</h4>
-<h5 id="presentations">Presentations</h5>
-<h6 id="presentation">&lt;&lt; Presentation &gt;&gt;</h6>
-<p>“Introduction of open-source FPGA toolchains” by <font color="#CC2200">Yimin Gu</font></p>
-<p>FPGAs are powerful devices, but the mindset different from software
-development and the blackbox-like toolchains (and also ) makes it hard
-to start on. Yimin Gu will introduce the status of the newly emerged
-open-source FPGA toolchains. Some boards will be shown on-site.</p>
-<p>“How efficient are architectures x86/aarch/RISC-V etc. for a workload?” by <font color="#CC2200">Christian Horn</font></p>
-<p>Let's benchmark a cpu-bound workload over systems of various
-architectures, while measuring power consumption. Who will be most
-energy efficient? Christian will introduce the test setup, talk a bit
-about the used software. Then details on the benchmarked workload
-(“bzcat”), on the various systems he benchmarked, and then introduce and discuss the results.</p>
+[map](https://maps.app.goo.gl/3CRS3ovorqYZorsk8)
+{{< /meeting-location >}}
+
+{{< meeting-header >}}
+
+{{< meeting-agenda />}}
+
 <h5 id="other_items_on_the_agenda_are">Other items on the agenda are:</h5>
 <ol>
 <li>Introduction of new members</li>
