@@ -7,11 +7,9 @@ HUGO_VERSION = "0.149.1"
 HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 
-[context.deploy-preview.environment]
-HUGO_VERSION = "0.149.1"
 
-[context.branch-deploy.environment]
-HUGO_VERSION = "0.149.1"
+
+
 
 # Headers for security and performance
 [[headers]]
@@ -59,5 +57,11 @@ HUGO_ENV = "production"
 [context.deploy-preview]
 command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
 
+[context.deploy-preview.environment]
+HUGO_VERSION = "0.149.1"
+
 [context.branch-deploy]
 command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
+
+[context.branch-deploy.environment]
+HUGO_VERSION = "0.149.1"
