@@ -1,6 +1,6 @@
 ---
 title: "“Bonenkai” Year-End Party"
-date: "2015-12-10"
+date: "2015-12-11"
 meetingType: "social"
 tags: ["meetings","legacy","wiki","social"]
 ---

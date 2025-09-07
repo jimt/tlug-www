@@ -1,6 +1,6 @@
 ---
 title: "Shinnenkai"
-date: "2018-01-11"
+date: "2018-01-12"
 meetingType: "social"
 tags: ["meetings","legacy","wiki","social"]
 ---

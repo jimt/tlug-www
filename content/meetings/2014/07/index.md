@@ -1,6 +1,6 @@
 ---
 title: "Technical Meeting"
-date: "2014-07-25"
+date: "2014-07-26"
 meetingType: "social"
 tags: ["meetings","legacy","wiki","social"]
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Nomikai"
-date: "2015-10-08"
+date: "2015-10-09"
 meetingType: "social"
 tags: ["meetings","legacy","wiki","social"]
 ---

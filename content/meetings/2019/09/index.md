@@ -1,6 +1,6 @@
 ---
 title: "TLUG 25th Anniversary Party"
-date: "2019-09-13"
+date: "2019-09-14"
 meetingType: "social"
 tags: ["meetings","legacy","wiki","social"]
 ---

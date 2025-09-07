@@ -1,6 +1,6 @@
 ---
 title: "Notice"
-date: "2021-10-09"
+date: "2021-10-10"
 meetingType: "social"
 tags: ["meetings","legacy","wiki","social"]
 ---

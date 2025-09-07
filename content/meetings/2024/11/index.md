@@ -1,6 +1,6 @@
 ---
 title: "Technical Meeting"
-date: "2024-11-08"
+date: "2024-11-09"
 meetingType: "social"
 tags: ["meetings","legacy","wiki","social"]
 ---
