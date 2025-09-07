@@ -5,25 +5,28 @@ meetingType: "social"
 tags: ["meetings", "social", "nomikai"]
 ---
 
-{{< meeting-schedule start="19:00" end="22:00" >}}
-Registration closes once we reach capacity. Please register early to secure your spot.
+{{< meeting-schedule start="19:00" end="?" >}}
 {{< /meeting-schedule >}}
 
-{{< meeting-location venue="TBD" map="" website="" >}}
-
-The location will be determined after we've reached a critical mass of attendees. We'll choose a venue that can accommodate our group size and offers good food and drinks.
-
-Check the registration page for location updates as the date approaches.
+{{< meeting-location venue="DevilCraft - Kanda" map="https://maps.app.goo.gl/CdqBqoqMuUAmo7FN7" website="https://en.devilcraft.jp/kanda/" >}}
+Ishikawa Bldg<br> 4-2-3 Nihonbashi-muromachi<br>
+Chuo-ku, Tokyo 103-0022
 {{< /meeting-location >}}
 
 {{< meeting-registration required="true" url="https://tlug.connpass.com/event/367382" >}}
-Please register on Connpass so we can confirm numbers for the reservation. This helps us choose an appropriately sized venue and ensures we have enough space for everyone.
-
-Registration is required for this event to help with planning.
-<!-- REVIEW: Verify registration URL is working before announcing -->
+Reservations have been made for the number of people registered at the
+time of the registration deadline, but you may join the waitlist at
+[https://tlug.connpass.com/event/367382/](https://tlug.connpass.com/event/367382/) or try your luck by just showing up.
 {{< /meeting-registration >}}
 
 {{< meeting-header >}}
+
+## Cost
+
+We have selected the 3000 JPY course. Drinks are charged separately but
+come at a 10% discount. The check will be divided evenly at the end, so
+the cost per person will be ((3000 JPY * 10 reservations) + (0.9 * total
+cost of drinks ordered)) / (number of people who show up).
 
 ## About This Nomikai
 
