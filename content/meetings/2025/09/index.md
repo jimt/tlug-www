@@ -8,9 +8,11 @@ tags: ["meetings", "social", "nomikai"]
 {{< meeting-schedule start="19:00" end="?" >}}
 {{< /meeting-schedule >}}
 
-{{< meeting-location venue="DevilCraft - Kanda" map="https://maps.app.goo.gl/CdqBqoqMuUAmo7FN7" website="https://en.devilcraft.jp/kanda/" >}}
-Ishikawa Bldg<br> 4-2-3 Nihonbashi-muromachi<br>
-Chuo-ku, Tokyo 103-0022
+{{< meeting-location venue="Zest Cantina - Daikanyama" map="https://goo.gl/maps/9ejrTuhJ2oQLeHmV6" website="https://zest-cantina.jp/daikanyama/" >}}
+
+B1F, 16−2 1F, Daikanyamacho, Shibuya City, Tokyo<br />
+tel 050 5445 7235<br />
+
 {{< /meeting-location >}}
 
 {{< meeting-registration required="true" url="https://tlug.connpass.com/event/367382" >}}
@@ -23,10 +25,8 @@ time of the registration deadline, but you may join the waitlist at
 
 ## Cost
 
-We have selected the 3000 JPY course. Drinks are charged separately but
-come at a 10% discount. The check will be divided evenly at the end, so
-the cost per person will be ((3000 JPY * 10 reservations) + (0.9 * total
-cost of drinks ordered)) / (number of people who show up).
+No event or venue fee. Meals at Zest Cantina average ¥3000.
+Attendees order individually. The bill will be split evenly among attendees at the conclusion.
 
 ## About This Nomikai
 
