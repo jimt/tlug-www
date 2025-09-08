@@ -1,0 +1,139 @@
+---
+title: Cooking Netscape source code
+---
+
+<pre>
+三浦です
+
+TLUGミーティングのメモを公開します．
+
+Tague Griffithsさん。
+Netscape Communicator/NavigatorのI18N(Internatinalization:国際化)
+担当Engineerです。
+彼は、3/31のNetscape Communicatorのソースコード公開に
+関して、その意義とNetscape社のスタンスなどを紹介してくれました。
+その中で、ビジネススタイルを変えたという話がありました．
+今後、Netsape社は、２つの製品をだすことになります。
+基本的な無料で自由なソースコードを公開するNetscape Communicatorと
+拡張された安定したEnterprize  Netscape Communicator です。
+Freeな方は、いろんなユーザーなどにより拡張されますが、その成果を
+Netscape社は、自社の製品に取り込むことができます．
+また、付加価値をつけた製品をだすことで、Freeの物に対して差別化を
+図ることができます。
+その結果、Netscape社は、社外のたくさんのEngineerの協力をえて、
+自社の製品の技術レベルを高めることができるうえ、そこから
+利益をえることができます。
+
+詳しくは、添付のメモをごらんください。
+
+
+ Title: Cooking Netscape source code
+Speeker: Tague Griffiths
+Organization: Netscape Internationalization Engineer
+
+*Source 3/31 Release
+Released Moz-Medium
+ navigator/composer/document and localizzation tool kits
+ buildable 5 million lines of code
+
+ PBS Documentary
+
+*So what happend on 3-31
+ Introduled "mozilla.org"
+ first build by people outside of netscape within 2 hr.
+
+*What is mozilla.org
+ separate source development group to Netscape corporation
+ Mozilla.org's mission  is development mozilla browser.
+
+*So what about netscape
+Netscape continue two type of netscape communicator
+    1. Free   2. Enterprize
+Netscape client development becomes like Red Hat or Caldera
+   based on stable version of sources
+ not always the most recent version of Mozilla code
+ add security  and sercurity analysis
+ includes Netscape value added componets
+ localization insto several languages
+ netscape provices testing and qualification against netscape servers
+Netscape product development just another developer.
+Netscape product development has different goals than mozilla.org
+
+*Mozilla source structure
+layer structure:=
+	frontend/ backend lib layer/ Netscape Portable Runtime(NSPR)
+Date processing library
+  cross platform C/C++ code same on all platform
+
+*Unix front end
+**General
+ supports all unix platform shipped.
+ Require motif 1.2
+ Port to lesstif by open source distribution beta testers.
+ build under native cc and CC compliers, some platforms also support gcc
+
+**Linux
+ Need: Gcc binutil gmake perl RCS etc...
+
+* Cross platform libary layer
+ build as shared objects and archibes
+   moz-export dynamiucally linked
+   mozilla-export stastically linked executable
+ implemented in c and c++
+ isolated from platform dependecies
+ this layer is reponsibile fro data proccesing
+
+*NSPR
+Cros platform runtime environment
+ Mac win unix linux
+supports unix esque platform services
+ threading
+ locks/semaphore
+ file i/o
+Normalizes API behavior for all platfroms
+
+*libi18n
+cross platform i18n functionality
+Encoding conversion support
+ X to Y (eg . sjis to jis)
+ X to U (particularly impotant for NT, 95)
+ U to X
+string walking functions
+char encoding detectin
+
+*libi18n DocCSID
+Document Charactor set ID
+Fundamental language and character set data
+ caputures character set
+ language functionality(e.g. Japanese mail v. Japanese web page)
+Used in
+ browser
+ mail
+ news
+ HTML UI widgets
+
+Three localization(binary) fr ja de
+binary is i18n
+
+*So how can i help out
+advocacy
+coding contibutons
+ core i18n code( sorting,string handling, encodeing conversion)
+additonal fieatures
+
+QA
+ testing japanese functionality
+ porviding testing resources for English speaking engineers(e.g. web pages w/test and gifs/jpegs with correct rendaling)
+translation  translate both user and developer documentation to japanese
+
+*how can we work
+ integrate i18n into core development communities
+
+ active discussion about supporting language other than
+ english take plase in the main mozila.org discasstion list
+
+ People conceerned about languages ohter than english
+ (Particulary MB and right to left languages) contribute time
+ into GTK and lesstif projects top improve theri internatioal support
+
+</pre>

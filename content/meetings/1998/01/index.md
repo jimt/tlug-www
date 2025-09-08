@@ -39,7 +39,7 @@ I was running late to the January 14th nomikai.  I thought we were
   This is a tremendous effort considering that he must have been hung
   over.
 
-[Japanese Description](/meeting-supplemental/1998/01/description-j/)
+[Japanese Description](/meetings-notes/1998/01/description-j/)
 
 <B>Yuusuke Tamula</B> went all out and has produced a wonderful page with 21
 full-color full-size pictures of the evening <CITE>(Some of which appear on this page as well)</CITE>. <B>Tamula-san</B> also wrote
